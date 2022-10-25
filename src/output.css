@@ -677,6 +677,28 @@ video {
   height: 300px;
 }
 
+.h-full {
+  height: 100%;
+}
+
+.h-\[70px\] {
+  height: 70px;
+}
+
+.h-\[60px\] {
+  height: 60px;
+}
+
+.h-\[fit-content\] {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.h-\[400px\] {
+  height: 400px;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -713,6 +735,22 @@ video {
 
 .w-1\/5 {
   width: 20%;
+}
+
+.w-\[400px\] {
+  width: 400px;
+}
+
+.w-\[500px\] {
+  width: 500px;
+}
+
+.w-\[600px\] {
+  width: 600px;
+}
+
+.w-\[550px\] {
+  width: 550px;
 }
 
 .translate-x-\[-50\%\] {
@@ -824,6 +862,15 @@ video {
 
 .bg-\[\#020d18\]\/80 {
   background-color: rgb(2 13 24 / 0.8);
+}
+
+.bg-\[\#020d18\]\/60 {
+  background-color: rgb(2 13 24 / 0.6);
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'\.\/images\/lorenzo-bg-image\.png\'\)\] {

@@ -24,6 +24,7 @@ const Main = () => {
             <h1 className="text-[1.5rem] text-red-600 font-[700]">
               LORENZO TV
             </h1>
+
             <p className="text-[3.5rem] font-[700]">
               Unlimited <span className="text-red-600">Movies</span>,<br />
               TV Series, Animes, & lots more.
@@ -104,7 +105,18 @@ const Main = () => {
           </div>
         </div>
       </section>
-      <section className="w-full h-[500px] bg-[#020d18]/80 bg-home px-[50px] py-[80px] text-[2rem]"></section>
+      <section className="w-full h-[250px] bg-[#020d18] bg-home text-[2rem]">
+        <div className="overlay w-full h-full bg-[#020d18]/80 px-[50px] py-[80px] flex items-center justify-between text-[1rem]">
+          <div>
+            <h2 className="text-[2rem] font-bold">Get in Touch</h2>
+            <p>Lorem ipsum dolor sit amet, consecetur adipiscing</p>
+          </div>
+          <input className="w-[550px] h-[60px]" />
+          <button className="px-[40px] py-[15px] h-[60px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+            Explore Movies
+          </button>
+        </div>
+      </section>
     </main>
   );
 };
