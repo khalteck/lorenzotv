@@ -5,6 +5,8 @@ import three from "./images/jelly-three-red-lines-2.png";
 import moviedata from "./movieData.json";
 import { useState } from "react";
 import Moviecard from "./Moviecard";
+import Form from "./Form";
+import contact from "./images/matey-man-and-woman-work-in-support-service.png";
 
 const Main = () => {
   const [movies] = useState(moviedata);
@@ -24,6 +26,7 @@ const Main = () => {
             <h1 className="text-[1.5rem] text-red-600 font-[700]">
               LORENZO TV
             </h1>
+
             <p className="text-[3.5rem] font-[700]">
               Unlimited <span className="text-red-600">Movies</span>,<br />
               TV Series, Animes, & lots more.
@@ -42,7 +45,7 @@ const Main = () => {
         </div>
       </section>
 
-      <section className="w-full px-[50px] py-[80px]">
+      <section className="w-full px-[50px] pt-[80px] pb-[250px] relative">
         <div className="w-full flex justify-between">
           <div className="w-[fit-content] relative">
             <h2 className="text-[2.2rem] font-[700]">Trending Movies</h2>
@@ -78,9 +81,20 @@ const Main = () => {
         <button className="px-[20px] py-[10px] rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
           More movies
         </button>
+        <svg
+          className="absolute bottom-0 left-0 block z-[-1]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 319"
+        >
+          <path
+            fill="#010911"
+            fillOpacity="1"
+            d="M0,160L48,181.3C96,203,192,245,288,234.7C384,224,480,160,576,117.3C672,75,768,53,864,85.3C960,117,1056,203,1152,224C1248,245,1344,203,1392,181.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
       </section>
 
-      <section className="w-full bg-black/30 px-[50px] py-[80px] text-[2rem]">
+      <section className="w-full bg-black/30 px-[50px] pb-[80px] text-[2rem]">
         <div className="w-full flex items-center justify-between">
           <div className="w-[40%] h-[250px] text-center flex place-items-center border-[3px] border-[#b91c1c]">
             vector image here
@@ -104,7 +118,27 @@ const Main = () => {
           </div>
         </div>
       </section>
-      <section className="w-full h-[500px] bg-[#020d18]/80 bg-home px-[50px] py-[80px] text-[2rem]"></section>
+      <section className="w-full bg-[#020d18] bg-home text-[2rem]">
+        <div className="overlay w-full h-full bg-[#020d18]/80 px-[50px] py-[80px] flex justify-between text-[1rem]">
+          <div className="w-[40%] text-center">
+            <h2 className="text-[2.5rem] font-bold">Get in Touch</h2>
+            <p className="text-[1.4rem]">
+              Contact us and we will get back to you soon
+            </p>
+            <div className="relative">
+              <img
+                alt="three-red"
+                src={three}
+                className="w-[60px] h-[60px] absolute top-[20px] right-[30px]"
+              />
+              <img alt="" src={contact} className="w-[80%] mx-auto" />
+            </div>
+          </div>
+          <div className="w-1/2">
+            <Form />
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

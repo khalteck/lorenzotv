@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "cartoon 1",
+    "coverImage": "https://i0.wp.com/nzdworld.com/wp-content/uploads/2022/10/IMG_20221014_122240_266.jpg?w=720&ssl=1",
+    "category": "movie",
+    "genre": "Adventure, Comedy, Family, Horror",
+    "downloadLink": "//www9.zippyshare.com/v/iORAp1My/file.html ",
+    "story-line": "A Halloween-hating dad reluctantly teams up with his teenage daughter when an evil spirit wreaks havoc by making their town’s decorations come to life "
+  },
+  {
+    "id": 2,
+    "title": "cartoon 2",
+    "coverImage": "  https://i0.wp.com/nzdworld.com/wp-content/uploads/2022/10/IMG_20221011_122515_105.jpg?w=720&ssl=1 ",
+    "category": "movie",
+    "genre": " Action, Adventure, Fantasy, Family",
+    "downloadLink": "//www15.zippyshare.com/v/Od9S0mN4/file.html",
+    "story-line": " One day, in the family manor, four cousins discover a passage to a mysterious world. Trapped in this unearthed land, the Kingdom of Keoherus, they must confront the Guardian of Time and face dark forces and beast to hopefully get home"
+  }
+]
