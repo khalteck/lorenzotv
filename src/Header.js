@@ -119,7 +119,7 @@ const Header = () => {
             >
               <input
                 type="text"
-                className="w-[200px] bg-black/10 text-[0.75rem] text-slate-100 px-1 outline-none"
+                className="w-[80%] bg-black/10 text-[0.75rem] text-slate-100 px-1 outline-none"
                 placeholder="Search for movie"
               />
               <button className="py-1 px-2 bg-red-700 rounded-md text-[0.85rem] absolute right-3">

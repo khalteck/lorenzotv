@@ -89,7 +89,7 @@ const Main = () => {
           More movies
         </button>
         <svg
-          className="absolute bottom-0 left-0 block z-[-1]"
+          className="w-full absolute bottom-0 left-0 block z-[-1]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 319"
         >
