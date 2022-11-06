@@ -1,6 +1,6 @@
 const Moviecard = (props) => {
   return (
-    <div className="bg-[#020d18] w-[220px] h-[470px] p-4 rounded-lg text-center snap-center snap-always relative">
+    <div className="bg-[#0f172a] w-[220px] h-[470px] p-4 rounded-lg text-center snap-center snap-always relative">
       <img
         alt=""
         src={props.item.coverImage}

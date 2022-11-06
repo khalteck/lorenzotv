@@ -51,7 +51,7 @@ const Main = () => {
         </div>
       </section>
 
-      <section className="w-full px-4 md:px-[50px] pt-[80px] pb-[100px] md:pb-[250px] relative">
+      <section className="w-full px-4 bg-gradient-to-b from-[#020d18] to-[#111827] md:px-[50px] pt-[80px] pb-[120px] md:pb-[250px] relative">
         <div className="w-full block md:flex justify-between">
           <div className="w-full md:w-[fit-content] relative">
             <h2 className="text-[1.75rem] md:text-[2.2rem] font-[700]">
@@ -60,7 +60,7 @@ const Main = () => {
             <img
               alt="three-red"
               src={three}
-              className="w-[40px] h-[40px] absolute top-[-20px] right-[70px] md:right-[-30px]"
+              className="w-[40px] h-[40px] absolute top-[-20px] right-[90px] md:right-[-30px]"
             />
           </div>
           <div className="text-right mt-8 md:mt-0">
@@ -90,7 +90,7 @@ const Main = () => {
           More movies
         </button>
         <svg
-          className="w-full absolute bottom-0 left-0 block z-[-1]"
+          className="w-full absolute bottom-0 left-0 block z-[1]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 319"
         >
@@ -102,7 +102,7 @@ const Main = () => {
         </svg>
       </section>
 
-      <section className="w-full bg-black/30 px-4 md:px-[50px] pb-[80px] text-[2rem]">
+      <section className="w-full bg-black/30 px-4 md:px-[50px] pb-[80px] text-[2rem] translate-y-[-2px]">
         <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between">
           <img
             alt=""
@@ -134,7 +134,7 @@ const Main = () => {
         </div>
       </section>
       <section className="w-full bg-[#020d18] bg-home text-[2rem]">
-        <div className="overlay w-full h-full bg-[#020d18]/80 px-4 md:px-[50px] py-[80px] block md:flex justify-between text-[1rem]">
+        <div className="overlay w-full h-full bg-[#020d18]/60 px-4 md:px-[50px] py-[80px] block md:flex justify-between text-[1rem]">
           <div className="w-full md:w-[40%] text-center">
             <h2 className="text-[2.5rem] font-bold">Get in Touch</h2>
             <p className="text-[1.4rem]">
