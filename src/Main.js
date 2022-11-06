@@ -29,8 +29,9 @@ const Main = () => {
             </h1>
 
             <p className="text-[2.3rem] md:text-[3.5rem] font-[700]">
-              Unlimited <span className="text-red-600">Movies</span>,<br />
-              TV Series, Animes, & lots more.
+              Unlimited <span className="text-red-600">Movies</span>
+              <br />
+              TV Series, Animes & lots more.
             </p>
           </div>
           <div className="w-full mt-12 md:mt-0 md:w-[40%] relative">
