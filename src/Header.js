@@ -111,12 +111,12 @@ const Header = () => {
         />
 
         {openSearch && (
-          <div className="w-full absolute top-[80px] left-0">
-            <div
-              onClick={searchBox}
-              onMouseOut={toggleSearch}
-              className="bg-black/50 px-[15px] py-[10px] border-red-700 border-[2px] flex gap-[20px] items-center rounded-lg relative"
-            >
+          <div
+            onClick={searchBox}
+            onMouseOut={toggleSearch}
+            className="w-full absolute top-[80px] left-0"
+          >
+            <div className="bg-black/50 px-[15px] py-[10px] border-red-700 border-[2px] flex gap-[20px] items-center rounded-lg relative">
               <input
                 type="text"
                 className="w-[80%] bg-black/10 text-[0.75rem] text-slate-100 px-1 outline-none"
