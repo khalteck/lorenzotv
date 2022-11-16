@@ -645,6 +645,10 @@ video {
   top: 0.25rem;
 }
 
+.left-\[-40px\] {
+  left: -40px;
+}
+
 .z-\[100\] {
   z-index: 100;
 }
@@ -851,6 +855,10 @@ video {
   height: 260px;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -939,6 +947,10 @@ video {
 
 .w-\[60\%\] {
   width: 60%;
+}
+
+.w-3 {
+  width: 0.75rem;
 }
 
 .translate-y-\[-2px\] {
@@ -1408,6 +1420,10 @@ video {
 
 .text-\[3rem\] {
   font-size: 3rem;
+}
+
+.text-\[0\.9rem\] {
+  font-size: 0.9rem;
 }
 
 .font-\[700\] {

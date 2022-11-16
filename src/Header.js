@@ -32,9 +32,6 @@ const Header = () => {
   function handleMovieHover() {
     setMovieHover(true);
   }
-  function handleMovieClick() {
-    setMovieHover((prevState) => !prevState);
-  }
   function handleMouseOut() {
     setMovieHover(false);
   }
@@ -62,13 +59,14 @@ const Header = () => {
             Home
           </Link>
           <div onMouseOver={handleMovieHover} className={`relative`}>
-            <div className="px-[10px] py-[5px] rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 cursor-pointer relative">
+            <div className="px-[10px] py-[5px] flex gap-3 items-center rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 cursor-pointer relative">
               Movies
+              <img alt="" src={movieHover ? up : down} className="h-3 w-3" />
             </div>
             {movieHover && (
               <div
                 onMouseOut={handleMouseOut}
-                className="w-[150px] p-3 bg-[#020d18] text-center absolute top-[40px] left-[-30px] rounded-md"
+                className="w-[200px] p-3 bg-[#020d18] text-center absolute top-[40px] left-[-40px] rounded-md"
               >
                 <Link to="/movies">
                   <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
@@ -189,20 +187,16 @@ const Header = () => {
                 <div className="w-full">Home</div>
               </Link>
             </li>
-            <li
-              onClick={handleMovieClick}
-              onMouseOut={handleMouseOut}
-              className={` my-4 relative`}
-            >
+            <li className={` my-4 relative`}>
               <div className="w-full flex items-center gap-3">
                 <div className="">Movies</div>
-                <img alt="" src={movieHover ? up : down} className="w-4 h-4" />
+                <img alt="" src={down} className="w-4 h-4" />
               </div>
             </li>
-            <li className="w-[150px] p-3 text-center">
+            <li className="w-[150px] p-3 text-center text-[0.9rem]">
               <Link to="/movies" onClick={hideDropdown}>
                 <div className="py-2 hover:bg-red-700 border-b border-t border-b-slate-600 border-t-slate-600">
-                  Movies test
+                  Movies
                 </div>
               </Link>
               <Link to="/series" onClick={hideDropdown}>
@@ -221,30 +215,6 @@ const Header = () => {
                 </div>
               </Link>
             </li>
-            {movieHover && (
-              <li className="w-[150px] p-3 text-center">
-                <Link to="/movies" onClick={hideDropdown}>
-                  <div className="py-2 hover:bg-red-700 border-b border-t border-b-slate-600 border-t-slate-600">
-                    Movies
-                  </div>
-                </Link>
-                <Link to="/series" onClick={hideDropdown}>
-                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
-                    Series
-                  </div>
-                </Link>
-                <Link to="/anime" onClick={hideDropdown}>
-                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
-                    Animes
-                  </div>
-                </Link>
-                <Link to="/animation" onClick={hideDropdown}>
-                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
-                    Animations
-                  </div>
-                </Link>
-              </li>
-            )}
             <li className="my-4">
               <Link to="/about" onClick={hideDropdown}>
                 <div className="w-full">About Us</div>
