@@ -200,22 +200,22 @@ const Header = () => {
               </div>
               {movieHover && (
                 <div className="w-[150px] p-3 text-center relative top-3">
-                  <Link onClick={hideDropdown} to="/movies">
+                  <Link to="/movies" onClick={hideDropdown}>
                     <div className="py-2 hover:bg-red-700 border-b border-t border-b-slate-600 border-t-slate-600">
                       Movies
                     </div>
                   </Link>
-                  <Link onClick={hideDropdown} to="/series">
+                  <Link to="/series" onClick={hideDropdown}>
                     <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
                       Series
                     </div>
                   </Link>
-                  <Link onClick={hideDropdown} to="/anime">
+                  <Link to="/anime" onClick={hideDropdown}>
                     <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
                       Animes
                     </div>
                   </Link>
-                  <Link onClick={hideDropdown} to="/animation">
+                  <Link to="/animation" onClick={hideDropdown}>
                     <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
                       Animations
                     </div>
