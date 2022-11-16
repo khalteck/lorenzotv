@@ -192,37 +192,37 @@ const Header = () => {
             <li
               onClick={handleMovieClick}
               onMouseOut={handleMouseOut}
-              className={` ${movieHover && "h-[260px]"} my-4 relative`}
+              className={` my-4 relative`}
             >
               <div className="w-full flex items-center gap-3">
                 <div className="">Movies</div>
                 <img alt="" src={movieHover ? up : down} className="w-4 h-4" />
               </div>
-              {movieHover && (
-                <div className="w-[150px] p-3 text-center relative top-3">
-                  <Link to="/movies" onClick={hideDropdown}>
-                    <div className="py-2 hover:bg-red-700 border-b border-t border-b-slate-600 border-t-slate-600">
-                      Movies
-                    </div>
-                  </Link>
-                  <Link to="/series" onClick={hideDropdown}>
-                    <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
-                      Series
-                    </div>
-                  </Link>
-                  <Link to="/anime" onClick={hideDropdown}>
-                    <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
-                      Animes
-                    </div>
-                  </Link>
-                  <Link to="/animation" onClick={hideDropdown}>
-                    <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
-                      Animations
-                    </div>
-                  </Link>
-                </div>
-              )}
             </li>
+            {movieHover && (
+              <li className="w-[150px] p-3 text-center">
+                <Link to="/movies" onClick={hideDropdown}>
+                  <div className="py-2 hover:bg-red-700 border-b border-t border-b-slate-600 border-t-slate-600">
+                    Movies
+                  </div>
+                </Link>
+                <Link to="/series" onClick={hideDropdown}>
+                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                    Series
+                  </div>
+                </Link>
+                <Link to="/anime" onClick={hideDropdown}>
+                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                    Animes
+                  </div>
+                </Link>
+                <Link to="/animation" onClick={hideDropdown}>
+                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                    Animations
+                  </div>
+                </Link>
+              </li>
+            )}
             <li className="my-4">
               <Link to="/about" onClick={hideDropdown}>
                 <div className="w-full">About Us</div>
