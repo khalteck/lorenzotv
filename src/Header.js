@@ -199,6 +199,11 @@ const Header = () => {
                 <img alt="" src={movieHover ? up : down} className="w-4 h-4" />
               </div>
             </li>
+            <li lassName="my-4">
+              <Link to="/movies" onClick={hideDropdown}>
+                <div className="w-full">Movies test</div>
+              </Link>
+            </li>
             {movieHover && (
               <li className="w-[150px] p-3 text-center">
                 <Link to="/movies" onClick={hideDropdown}>
