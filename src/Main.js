@@ -9,6 +9,7 @@ import Moviecard from "./Moviecard";
 import Form from "./Form";
 import contact from "./images/matey-man-and-woman-work-in-support-service.png";
 import popcorn from "./images/linus-mimietz-uWjBqbCHY7g-unsplash.jpg";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   //to display five random movies
@@ -167,9 +168,11 @@ const Main = () => {
                   return <Moviecard key={index} item={item} />;
                 })}
               </div>
-              <button className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
-                More movies
-              </button>
+              <Link to="/movies">
+                <button className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+                  More movies
+                </button>
+              </Link>
             </div>
           )}
 
@@ -180,9 +183,11 @@ const Main = () => {
                   return <Moviecard key={index} item={item} />;
                 })}
               </div>
-              <button className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
-                More Animations
-              </button>
+              <Link to="/animation">
+                <button className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+                  More Animations
+                </button>
+              </Link>
             </div>
           )}
         </div>
