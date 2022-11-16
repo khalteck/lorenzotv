@@ -199,9 +199,26 @@ const Header = () => {
                 <img alt="" src={movieHover ? up : down} className="w-4 h-4" />
               </div>
             </li>
-            <li lassName="my-4">
+            <li className="w-[150px] p-3 text-center">
               <Link to="/movies" onClick={hideDropdown}>
-                <div className="w-full">Movies test</div>
+                <div className="py-2 hover:bg-red-700 border-b border-t border-b-slate-600 border-t-slate-600">
+                  Movies test
+                </div>
+              </Link>
+              <Link to="/series" onClick={hideDropdown}>
+                <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                  Series
+                </div>
+              </Link>
+              <Link to="/anime" onClick={hideDropdown}>
+                <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                  Animes
+                </div>
+              </Link>
+              <Link to="/animation" onClick={hideDropdown}>
+                <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                  Animations
+                </div>
               </Link>
             </li>
             {movieHover && (
