@@ -43,7 +43,7 @@ const Main = () => {
     });
   }
 
-  function handleDisplaySeries() {
+  /*function handleDisplaySeries() {
     setRandomDisplay((prevState) => {
       return {
         movieDisplay: false,
@@ -63,7 +63,7 @@ const Main = () => {
         animationDisplay: false,
       };
     });
-  }
+  }*/
 
   function handleDisplayAnimation() {
     setRandomDisplay((prevState) => {
