@@ -192,14 +192,14 @@ const Header = () => {
             <li
               onClick={handleMovieClick}
               onMouseOut={handleMouseOut}
-              className={` ${movieHover && "h-[250px]"} my-4 relative`}
+              className={` ${movieHover && "h-[260px]"} my-4 relative`}
             >
               <div className="w-full flex items-center gap-3">
                 <div className="">Movies</div>
                 <img alt="" src={movieHover ? up : down} className="w-4 h-4" />
               </div>
               {movieHover && (
-                <div className="w-[150px] p-3 text-center absolute top-[38px] left-[10px] rounded-md">
+                <div className="w-[150px] p-3 text-center relative top-3">
                   <Link onClick={hideDropdown} to="/movies">
                     <div className="py-2 hover:bg-red-700 border-b border-t border-b-slate-600 border-t-slate-600">
                       Movies
