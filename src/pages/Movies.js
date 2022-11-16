@@ -1,6 +1,7 @@
-import moviedata from "../movieData.json";
+import moviedata from "../data/movieData.json";
 import { useState } from "react";
-import Moviecard from "../Moviecard";
+import Moviecard from "../components/Moviecard";
+import ScrollToTop from "../ScrollToTop";
 
 const Movies = () => {
   const [movies] = useState(moviedata);
@@ -28,6 +29,7 @@ const Movies = () => {
           return <Moviecard key={index} item={item} />;
         })}
       </section>
+      <ScrollToTop />
     </div>
   );
 };

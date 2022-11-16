@@ -2,14 +2,15 @@ import hero from "./images/lorenzo apple touch.jpeg";
 import arcs from "./images/jelly-two-red-lines-1.png";
 import three from "./images/jelly-three-red-lines-2.png";
 //import movieImg from "./images/red-lorenzo-bg.jpg";
-import moviedata from "./movieData.json";
-import animationdata from "./AnimationData.json";
+import moviedata from "./data/movieData.json";
+import animationdata from "./data/AnimationData.json";
 import { useState } from "react";
-import Moviecard from "./Moviecard";
-import Form from "./Form";
+import Moviecard from "./components/Moviecard";
+import Form from "./components/Form";
 import contact from "./images/matey-man-and-woman-work-in-support-service.png";
 import popcorn from "./images/linus-mimietz-uWjBqbCHY7g-unsplash.jpg";
 import { Link } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
 const Main = () => {
   //to display five random movies
@@ -256,6 +257,7 @@ const Main = () => {
           </div>
         </div>
       </section>
+      <ScrollToTop />
     </main>
   );
 };
