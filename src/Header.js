@@ -3,11 +3,15 @@ import search from "./images/icons8-search-50.png";
 import menu from "./images/icons8-menu-squared-50.png";
 import close from "./images/icons8-close-window-50.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import up from "./images/icons8-up-24.png";
+import down from "./images/icons8-chevron-24.png";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
   function handleClick() {
     setOpenMenu((prevState) => !prevState);
+    setOpenSearch(false);
   }
 
   //to close the dropdown after clicking a div
@@ -24,10 +28,21 @@ const Header = () => {
     setOpenSearch(true);
   }
 
+  const [movieHover, setMovieHover] = useState(false);
+  function handleMovieHover() {
+    setMovieHover(true);
+  }
+  function handleMovieClick() {
+    setMovieHover((prevState) => !prevState);
+  }
+  function handleMouseOut() {
+    setMovieHover(false);
+  }
+
   return (
     <header>
       {/**Desktop header */}
-      <div className="w-full h-[80px] px-[50px] text-slate-100 bg-[#020d18] hidden md:flex flex-wrap items-center border-slate-700 border-b fixed top-0 left-0 z-[100]">
+      <div className="w-full h-[80px] px-[50px] text-slate-100 bg-[#020d18] hidden lg:flex items-center border-slate-700 border-b fixed top-0 left-0 z-[100]">
         {/**logo div */}
         <div className="flex items-center">
           <img alt="logo" src={logo} className="w-[40px] h-[40px] rounded-lg" />
@@ -39,25 +54,52 @@ const Header = () => {
 
         {/**nav bar */}
         <nav className="font-[600] flex gap-[30px] ml-[100px] mr-auto">
-          <a
-            href="h"
+          <Link
+            to="/"
+            onMouseOver={handleMouseOut}
             className="px-[10px] py-[5px] rounded-md bg-[#b91c1c] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300"
           >
             Home
-          </a>
-          <a
-            href="h"
-            className="px-[10px] py-[5px] rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300"
-          >
-            Movies
-          </a>
-          <a
-            href="h"
+          </Link>
+          <div onMouseOver={handleMovieHover} className={`relative`}>
+            <div className="px-[10px] py-[5px] rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 cursor-pointer relative">
+              Movies
+            </div>
+            {movieHover && (
+              <div
+                onMouseOut={handleMouseOut}
+                className="w-[150px] p-3 bg-[#020d18] text-center absolute top-[40px] left-[-30px] rounded-md"
+              >
+                <Link to="/movies">
+                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                    Movies
+                  </div>
+                </Link>
+                <Link to="/series">
+                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                    Series
+                  </div>
+                </Link>
+                <Link to="/anime">
+                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                    Animes
+                  </div>
+                </Link>
+                <Link to="/animation">
+                  <div className="py-2 hover:bg-red-700 ">Animations</div>
+                </Link>
+              </div>
+            )}
+          </div>
+          <Link
+            to="/about"
+            onMouseOver={handleMouseOut}
             className="px-[10px] py-[5px] rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300"
           >
             About Us
-          </a>
+          </Link>
           <a
+            onMouseOver={handleMouseOut}
             href="http://Lorenzotvblog.netlify.app"
             target="_blank"
             rel="noreferrer"
@@ -84,7 +126,7 @@ const Header = () => {
 
       {/*mobile header */}
       <div
-        className={` w-full h-[80px] px-[20px] bg-[#020d18] text-slate-100 fixed top-0 left-0 z-[100] md:hidden flex items-center`}
+        className={` w-full h-[80px] px-[20px] bg-[#020d18] text-slate-100 fixed top-0 left-0 z-[100] lg:hidden flex items-center`}
       >
         <img
           alt="hamburger"
@@ -94,12 +136,14 @@ const Header = () => {
         />
 
         {/**logo div */}
-        <div className="flex items-center mr-auto">
-          <img alt="logo" src={logo} className="w-6 h-6 rounded-lg" />
-          <p className="font-[700] tracking-wider text-[1.5rem] ml-2">
-            LORENZO TV
-          </p>
-        </div>
+        <Link to="/" className="mr-auto">
+          <div className="flex items-center">
+            <img alt="logo" src={logo} className="w-6 h-6 rounded-lg" />
+            <p className="font-[700] tracking-wider text-[1.5rem] ml-2">
+              LORENZO TV
+            </p>
+          </div>
+        </Link>
         {/**logo div */}
 
         <img
@@ -141,24 +185,53 @@ const Header = () => {
           />
           <ul className="slide float-left w-[65%] h-full bg-[#020d18] px-[30px] text-[1.25rem] font-[700] text-slate-100 pt-[100px]">
             <li className="my-4">
-              <div to="/" onClick={hideDropdown}>
+              <Link to="/" onClick={hideDropdown}>
                 <div className="w-full">Home</div>
+              </Link>
+            </li>
+            <li
+              onClick={handleMovieClick}
+              onMouseOut={handleMouseOut}
+              className={` ${movieHover && "h-[250px]"} my-4 relative`}
+            >
+              <div className="w-full flex items-center gap-3">
+                <div className="">Movies</div>
+                <img alt="" src={movieHover ? up : down} className="w-4 h-4" />
               </div>
+              {movieHover && (
+                <div className="w-[150px] p-3 text-center absolute top-[38px] left-[10px] rounded-md">
+                  <Link onClick={hideDropdown} to="/movies">
+                    <div className="py-2 hover:bg-red-700 border-b border-t border-b-slate-600 border-t-slate-600">
+                      Movies
+                    </div>
+                  </Link>
+                  <Link onClick={hideDropdown} to="/series">
+                    <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                      Series
+                    </div>
+                  </Link>
+                  <Link onClick={hideDropdown} to="/anime">
+                    <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                      Animes
+                    </div>
+                  </Link>
+                  <Link onClick={hideDropdown} to="/animation">
+                    <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                      Animations
+                    </div>
+                  </Link>
+                </div>
+              )}
             </li>
             <li className="my-4">
-              <div to="/about" onClick={hideDropdown}>
-                <div className="w-full">Movies</div>
-              </div>
-            </li>
-            <li className="my-4">
-              <div to="/book" onClick={hideDropdown}>
+              <Link to="/about" onClick={hideDropdown}>
                 <div className="w-full">About Us</div>
-              </div>
+              </Link>
             </li>
             <li className="my-4">
-              <div to="/blog" onClick={hideDropdown}>
+              <a href="http://Lorenzotvblog.netlify.app" onClick={hideDropdown}>
                 <div className="w-full">Blog</div>
-              </div>
+              </a>
             </li>
           </ul>
         </div>

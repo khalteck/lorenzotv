@@ -3,6 +3,7 @@ import arcs from "./images/jelly-two-red-lines-1.png";
 import three from "./images/jelly-three-red-lines-2.png";
 //import movieImg from "./images/red-lorenzo-bg.jpg";
 import moviedata from "./movieData.json";
+import animationdata from "./AnimationData.json";
 import { useState } from "react";
 import Moviecard from "./Moviecard";
 import Form from "./Form";
@@ -10,15 +11,71 @@ import contact from "./images/matey-man-and-woman-work-in-support-service.png";
 import popcorn from "./images/linus-mimietz-uWjBqbCHY7g-unsplash.jpg";
 
 const Main = () => {
+  //to display five random movies
   const [movies] = useState(moviedata);
   let moviesCopy = [...movies];
-
   //to shuffle the movie array
-  const random = moviesCopy.sort(() => 0.5 - Math.random());
+  const randomMovies = moviesCopy.sort(() => 0.5 - Math.random());
+  let fiveMovies = randomMovies.slice(0, 5);
 
-  //to select first five movies of randomized movie array
-  let five = random.slice(0, 5);
-  console.log(five);
+  const [animations] = useState(animationdata);
+  let animationCopy = [...animations];
+  //to shuffle the movie array
+  const randomAnimations = animationCopy.sort(() => 0.5 - Math.random());
+  let fiveAnimations = randomAnimations.slice(0, 5);
+
+  //random display state
+  const [randomDisplay, setRandomDisplay] = useState({
+    movieDisplay: true,
+    seriesDisplay: false,
+    animeDisplay: false,
+    animationDisplay: false,
+  });
+
+  function handleDisplayMovies() {
+    setRandomDisplay((prevState) => {
+      return {
+        movieDisplay: true,
+        seriesDisplay: false,
+        animeDisplay: false,
+        animationDisplay: false,
+      };
+    });
+  }
+
+  function handleDisplaySeries() {
+    setRandomDisplay((prevState) => {
+      return {
+        movieDisplay: false,
+        seriesDisplay: true,
+        animeDisplay: false,
+        animationDisplay: false,
+      };
+    });
+  }
+
+  function handleDisplayAnime() {
+    setRandomDisplay((prevState) => {
+      return {
+        movieDisplay: false,
+        seriesDisplay: false,
+        animeDisplay: true,
+        animationDisplay: false,
+      };
+    });
+  }
+
+  function handleDisplayAnimation() {
+    setRandomDisplay((prevState) => {
+      return {
+        movieDisplay: false,
+        seriesDisplay: false,
+        animeDisplay: false,
+        animationDisplay: true,
+      };
+    });
+  }
+
   return (
     <main className="text-slate-100">
       <section className="w-full min-h-screen bg-[url('./images/lorenzo-bg-image.png')] bg-no-repeat">
@@ -55,42 +112,82 @@ const Main = () => {
         <div className="w-full block md:flex justify-between">
           <div className="w-full md:w-[fit-content] relative">
             <h2 className="text-[1.75rem] md:text-[2.2rem] font-[700]">
-              Trending Movies
+              Trending {randomDisplay.movieDisplay && "Movies"}{" "}
+              {randomDisplay.seriesDisplay && "Series"}{" "}
+              {randomDisplay.animeDisplay && "Animes"}{" "}
+              {randomDisplay.animationDisplay && "Animations"}
             </h2>
             <img
               alt="three-red"
               src={three}
-              className="w-[40px] h-[40px] absolute top-[-20px] right-[90px] md:right-[-30px]"
+              className="w-[40px] h-[40px] hidden lg:block absolute top-[-20px] right-[90px] md:right-[-30px]"
             />
           </div>
           <div className="text-right mt-8 md:mt-0">
             <h3 className="text-[1.5rem] font-[600]">Categories</h3>
             <div className="w-full md:w-[fit-content] mt-4 md:mt-10 flex justify-end gap-4 md:gap-8 text-[0.75rem] md:text-[1rem]">
-              <button className="px-[10px] py-1 h-[fit-content] md:py-2 rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+              <button
+                onClick={handleDisplayMovies}
+                className={`px-[10px] py-1 h-[fit-content] md:py-2 ${
+                  randomDisplay.movieDisplay && "bg-red-700"
+                } rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
+              >
                 Movie
               </button>
-              <button className="px-[10px] py-1 h-[fit-content] md:py-2 rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+              <button
+                className={`px-[10px] py-1 h-[fit-content] md:py-2 ${
+                  randomDisplay.seriesDisplay && "bg-red-700"
+                } rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
+              >
                 Series
               </button>
-              <button className="px-[10px] py-1 h-[fit-content] md:py-2 rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+              <button
+                className={`px-[10px] py-1 h-[fit-content] md:py-2 ${
+                  randomDisplay.animeDisplay && "bg-red-700"
+                } rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
+              >
                 Anime
               </button>
-              <button className="px-[10px] py-1 h-[fit-content] md:py-2 rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
-                Cartoon
+              <button
+                onClick={handleDisplayAnimation}
+                className={`px-[10px] py-1 h-[fit-content] md:py-2 ${
+                  randomDisplay.animationDisplay && "bg-red-700"
+                } rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
+              >
+                Animation
               </button>
             </div>
           </div>
         </div>
-        <div className="w-full bg-black/30 mt-10 mb-8 p-5 gap-5 rounded-lg grid grid-flow-col place-items-center scroll-auto overflow-y-auto overscroll-x-contain snap-mandatory snap-x no-scrollbar">
-          {five?.map((item, index) => {
-            return <Moviecard key={index} item={item} />;
-          })}
+        <div className="mb-[50px]">
+          {randomDisplay.movieDisplay && (
+            <div>
+              <div className="w-full bg-black/30 mt-10 mb-8 p-5 gap-5 rounded-lg grid grid-flow-col place-items-center scroll-auto overflow-y-auto overscroll-x-contain snap-mandatory snap-x no-scrollbar">
+                {fiveMovies?.map((item, index) => {
+                  return <Moviecard key={index} item={item} />;
+                })}
+              </div>
+              <button className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+                More movies
+              </button>
+            </div>
+          )}
+
+          {randomDisplay.animationDisplay && (
+            <div>
+              <div className="w-full bg-black/30 mt-10 mb-8 p-5 gap-5 rounded-lg grid grid-flow-col place-items-center scroll-auto overflow-y-auto overscroll-x-contain snap-mandatory snap-x no-scrollbar">
+                {fiveAnimations?.map((item, index) => {
+                  return <Moviecard key={index} item={item} />;
+                })}
+              </div>
+              <button className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+                More Animations
+              </button>
+            </div>
+          )}
         </div>
-        <button className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
-          More movies
-        </button>
         <svg
-          className="w-full absolute bottom-0 left-0 block z-[1]"
+          className="w-full absolute bottom-0 left-0 block z-[0]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 319"
         >

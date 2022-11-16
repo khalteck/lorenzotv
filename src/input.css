@@ -25,4 +25,7 @@
       transform: translateX(0px);
     }
   }
+  .grid-lg {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
 }
