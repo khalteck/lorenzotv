@@ -18,13 +18,13 @@ const Main = () => {
   let moviesCopy = [...movies];
   //to shuffle the movie array
   const randomMovies = moviesCopy.sort(() => 0.5 - Math.random());
-  let fiveMovies = randomMovies.slice(0, 5);
+  let fiveMovies = randomMovies.slice(0, 20);
 
   const [animations] = useState(animationdata);
   let animationCopy = [...animations];
   //to shuffle the movie array
   const randomAnimations = animationCopy.sort(() => 0.5 - Math.random());
-  let fiveAnimations = randomAnimations.slice(0, 5);
+  let fiveAnimations = randomAnimations.slice(0, 20);
 
   //random display state
   const [randomDisplay, setRandomDisplay] = useState({
@@ -164,7 +164,7 @@ const Main = () => {
         <div className="mb-[50px]">
           {randomDisplay.movieDisplay && (
             <div>
-              <div className="w-full bg-black/30 mt-10 mb-8 p-5 gap-5 rounded-lg grid grid-flow-col place-items-center scroll-auto overflow-y-auto overscroll-x-contain snap-mandatory snap-x no-scrollbar">
+              <div className="w-full bg-black/30 mt-10 mb-8 p-5 gap-5 rounded-lg grid grid-flow-col place-items-center scroll-auto overflow-y-auto overscroll-x-contain snap-mandatory md:snap-none snap-x no-scrollbar">
                 {fiveMovies?.map((item, index) => {
                   return <Moviecard key={index} item={item} />;
                 })}

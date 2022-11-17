@@ -7,6 +7,7 @@ import Movies from "./pages/Movies";
 import Series from "./pages/Series";
 import Anime from "./pages/Anime";
 import Animation from "./pages/Animation";
+import Details from "./pages/Details";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
             <Route path="/about">
               <About />
             </Route>
-            <Route path="/movies">
+            <Route exact path="/movies">
               <Movies />
             </Route>
             <Route path="/series">
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route path="/animation">
               <Animation />
+            </Route>
+            <Route path="/movie/:title">
+              <Details />
             </Route>
           </Switch>
         </div>
