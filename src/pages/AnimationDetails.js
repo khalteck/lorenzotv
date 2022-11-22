@@ -1,21 +1,21 @@
 import ScrollToTop from "../ScrollToTop";
 import { useParams } from "react-router-dom";
-import moviedata from "../data/movieData.json";
+import animationData from "../data/animationData.json";
 
-const Details = () => {
+const AnimationDetails = () => {
   const { title } = useParams();
-  const movie = moviedata?.filter((movie) => movie.title === title)[0];
+  const movie = animationData?.filter((movie) => movie.title === title)[0];
 
   return (
-    <div className="bg-[#020d18] text-slate-100 px-4 md:px-[50px] pt-8 pb-4 ">
+    <div className="bg-[#020d18] text-slate-100 px-4 md:px-[50px] pt-8 pb-4">
       <h1 className="w-[fit-content] sm:w-full text-[1.75rem] md:text-[2.2rem] font-[700] mx-auto">
         {movie.title}
       </h1>
-      <div className="w-full bg-black/30 mt-10 mb-8 p-5 block sm:flex gap-5 rounded-lg">
+      <div className="w-full bg-black/30 mt-10 mb-8 p-5 block sm:flex gap-10 rounded-lg">
         <img
           alt=""
           src={movie.coverImage}
-          className="w-[220px] h-auto rounded-md mx-auto mb-8 sm:mb-0"
+          className="w-[220px] h-auto rounded-md mx-auto sm:mx-0 mb-8 sm:mb-0"
         />
         <div className="text-start">
           <h2 className="w-full sm:w-full text-[1rem] md:text-[1.25rem] mx-auto mb-3">
@@ -46,4 +46,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default AnimationDetails;

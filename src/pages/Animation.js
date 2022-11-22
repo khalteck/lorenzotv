@@ -1,7 +1,7 @@
-import animationdata from "../data/AnimationData.json";
+import animationdata from "../data/animationData.json";
 import { useState } from "react";
-import Moviecard from "../components/Moviecard";
 import ScrollToTop from "../ScrollToTop";
+import Animationcard from "../components/Animationcard";
 
 const Animation = () => {
   const [movies] = useState(animationdata);
@@ -26,7 +26,7 @@ const Animation = () => {
       </div>
       <section className="w-full py-[50px] grid justify-center place-items-center grid-lg gap-6 lg:gap-8">
         {randomMovies?.map((item, index) => {
-          return <Moviecard key={index} item={item} />;
+          return <Animationcard key={index} item={item} />;
         })}
       </section>
       <ScrollToTop />

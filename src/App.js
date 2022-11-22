@@ -8,6 +8,8 @@ import Series from "./pages/Series";
 import Anime from "./pages/Anime";
 import Animation from "./pages/Animation";
 import Details from "./pages/Details";
+import AnimationDetails from "./pages/AnimationDetails";
+import "./output.css";
 
 function App() {
   return (
@@ -34,8 +36,11 @@ function App() {
             <Route path="/animation">
               <Animation />
             </Route>
-            <Route path="/movie/:title">
+            <Route exact path="/movie/:title">
               <Details />
+            </Route>
+            <Route exact path="/animations/:title">
+              <AnimationDetails />
             </Route>
           </Switch>
         </div>

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const Moviecard = (props) => {
+const Animationcard = (props) => {
   return (
-    <Link to={`/movie/${props.item.title}`}>
+    <Link to={`/animations/${props.item.title}`}>
       <div className="bg-[#0f172a] w-[220px] h-[420px] p-4 rounded-lg text-center snap-center snap-always relative">
         <img
           alt=""
@@ -22,4 +22,4 @@ const Moviecard = (props) => {
   );
 };
 
-export default Moviecard;
+export default Animationcard;

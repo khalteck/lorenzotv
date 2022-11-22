@@ -3,7 +3,7 @@ import arcs from "./images/jelly-two-red-lines-1.png";
 import three from "./images/jelly-three-red-lines-2.png";
 //import movieImg from "./images/red-lorenzo-bg.jpg";
 import moviedata from "./data/movieData.json";
-import animationdata from "./data/AnimationData.json";
+import animationdata from "./data/animationData.json";
 import { useState } from "react";
 import Moviecard from "./components/Moviecard";
 import Form from "./components/Form";
@@ -11,6 +11,7 @@ import contact from "./images/matey-man-and-woman-work-in-support-service.png";
 import popcorn from "./images/linus-mimietz-uWjBqbCHY7g-unsplash.jpg";
 import { Link } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
+import Animationcard from "./components/Animationcard";
 
 const Main = () => {
   //to display five random movies
@@ -181,7 +182,7 @@ const Main = () => {
             <div>
               <div className="w-full bg-black/30 mt-10 mb-8 p-5 gap-5 rounded-lg grid grid-flow-col place-items-center scroll-auto overflow-y-auto overscroll-x-contain snap-mandatory snap-x no-scrollbar">
                 {fiveAnimations?.map((item, index) => {
-                  return <Moviecard key={index} item={item} />;
+                  return <Animationcard key={index} item={item} />;
                 })}
               </div>
               <Link to="/animation">
@@ -193,7 +194,7 @@ const Main = () => {
           )}
         </div>
         <svg
-          className="w-full absolute bottom-0 left-0 block z-[0]"
+          className="w-full absolute bottom-[1px] left-0 block z-[0]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 319"
         >
@@ -205,7 +206,7 @@ const Main = () => {
         </svg>
       </section>
 
-      <section className="w-full bg-black/30 px-4 md:px-[50px] pb-[80px] text-[2rem] translate-y-[-2px]">
+      <section className="w-full bg-black/30 px-4 md:px-[50px] pb-[80px] text-[2rem] translate-y-[-1px] border border-black/30">
         <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between">
           <img
             alt=""
