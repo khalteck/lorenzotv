@@ -7,7 +7,7 @@ const Details = () => {
   const movie = moviedata?.filter((movie) => movie.title === title)[0];
 
   return (
-    <div className="bg-[#020d18] text-slate-100 px-4 md:px-[50px] pt-8 pb-4 ">
+    <div className="bg-gradient-to-b from-[#020d18] to-[#111827] md:bg-[#020d18] text-slate-100 px-4 md:px-[50px] pt-8 pb-4 ">
       <h1 className="w-[fit-content] sm:w-full text-[1.75rem] md:text-[2.2rem] font-[700] mx-auto">
         {movie.title}
       </h1>
