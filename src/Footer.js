@@ -7,9 +7,9 @@ import youtube from "./images/icons8-youtube-logo-48.png";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-black/30 pt-[80px] text-[1rem] text-slate-300">
-      <div className="w-full mb-[60px] px-[80px] flex gap-8 justify-between">
-        <ul className="w-[fit-content]">
+    <footer className="w-full bg-black/30 pt-[50px] text-[1rem] text-slate-300">
+      <div className="w-full mb-[60px] px-4 sm:px-[30px] lg:px-[80px] flex flex-col-reverse md:flex-row gap-4 md:gap-8 justify-between">
+        <ul className="w-[fit-content] mb-0">
           <li className="mb-4">
             <div className="flex items-center">
               <img
@@ -33,7 +33,7 @@ const Footer = () => {
           </li>
         </ul>
 
-        <ul>
+        <ul className="mb-10 md:mb-0">
           <li className="font-[700] tracking-wider text-[1.2rem] mb-4">
             Terms of use
           </li>
@@ -42,7 +42,7 @@ const Footer = () => {
           </li>
         </ul>
 
-        <div className="text-center">
+        <div className="text-start md:text-center mb-10 md:mb-0">
           <h3 className="font-[700] tracking-wider text-[1.2rem] mb-4">
             Follow us
           </h3>
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-[500px]">
+        <div className="w-full sm:w-[300px] lg:w-[500px] mb-10 md:mb-0">
           <h3 className="font-[700] tracking-wider text-[1.2rem] mb-4">
             Newsletter
           </h3>
