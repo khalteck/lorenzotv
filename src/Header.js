@@ -17,6 +17,7 @@ const Header = () => {
   //to close the dropdown after clicking a div
   const hideDropdown = () => {
     setOpenMenu(false);
+    setMovieDrop(false);
   };
 
   //to toggle display serach bar on mobile
@@ -34,6 +35,11 @@ const Header = () => {
   }
   function handleMouseOut() {
     setMovieHover(false);
+  }
+
+  const [movieDrop, setMovieDrop] = useState(false);
+  function handleMovieDrop() {
+    setMovieDrop((prevState) => !prevState);
   }
 
   return (
@@ -188,12 +194,19 @@ const Header = () => {
               </Link>
             </li>
             <li className={` my-4 relative`}>
-              <div className="w-full flex items-center gap-3">
+              <div
+                onClick={handleMovieDrop}
+                className="w-full flex items-center gap-3"
+              >
                 <div className="">Movies</div>
                 <img alt="" src={down} className="w-4 h-4" />
               </div>
             </li>
-            <li className="w-[150px] p-3 text-center text-[0.9rem]">
+            <li
+              className={`w-[150px] p-3 ${
+                movieDrop ? "block" : "hidden"
+              } text-center text-[0.9rem]`}
+            >
               <Link to="/movies" onClick={hideDropdown}>
                 <div className="py-2 hover:bg-red-700 border-b border-t border-b-slate-600 border-t-slate-600">
                   Movies
