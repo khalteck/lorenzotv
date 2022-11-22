@@ -199,7 +199,7 @@ const Header = () => {
                 className="w-full flex items-center gap-3"
               >
                 <div className="">Movies</div>
-                <img alt="" src={down} className="w-4 h-4" />
+                <img alt="" src={movieDrop ? up : down} className="w-4 h-4" />
               </div>
             </li>
             <li
