@@ -6,8 +6,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import up from "./images/icons8-up-24.png";
 import down from "./images/icons8-chevron-24.png";
+import moviedata from "./data/movieData.json";
+import animationdata from "./data/animationData.json";
+import Search from "./components/Search";
 
-const Header = () => {
+const Header = ({
+  handleSearchSubmit,
+  showSearchList,
+  handleCloseSearchList,
+}) => {
   const [openMenu, setOpenMenu] = useState(false);
   function handleClick() {
     setOpenMenu((prevState) => !prevState);
@@ -72,7 +79,7 @@ const Header = () => {
             {movieHover && (
               <div
                 onMouseOut={handleMouseOut}
-                className="w-[200px] p-3 bg-[#020d18] text-center absolute top-[40px] left-[-40px] rounded-md"
+                className="w-[200px] p-3 bg-[#020d18] text-center absolute top-[40px] left-[-40px] rounded-md z-[100]"
               >
                 <Link to="/movies">
                   <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
@@ -114,17 +121,17 @@ const Header = () => {
         </nav>
         {/**nav bar */}
 
-        <div className="bg-black/50 px-[15px] py-[10px] border-red-700 border-[2px] flex gap-[20px] items-center rounded-lg">
-          <input
-            type="text"
-            className="w-[200px] bg-black/10 text-[0.75rem] text-slate-100 px-1 outline-none"
-            placeholder="Search for movie"
+        <div className="w-[250px]">
+          <Search
+            animationdata={animationdata}
+            moviedata={moviedata}
+            showSearchList={showSearchList}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCloseSearchList={handleCloseSearchList}
           />
-          <img
-            alt="search-icon"
-            src={search}
-            className="w-[20px] h-[20px] cursor-pointer"
-          />
+          {/* {showSearchList && (
+            <div className="w-full h-full bg-[#020d18]/90 absolute top-0 left-0"></div>
+          )} */}
         </div>
       </div>
 
@@ -150,29 +157,36 @@ const Header = () => {
         </Link>
         {/**logo div */}
 
-        <img
-          alt="search-icon"
-          src={search}
-          className="w-7 h-7 cursor-pointer"
-          onClick={toggleSearch}
-          onMouseOut={toggleSearch}
-        />
+        {!showSearchList && (
+          <img
+            alt="search-icon"
+            src={search}
+            className="w-7 h-7 cursor-pointer"
+            onClick={toggleSearch}
+          />
+        )}
 
         {openSearch && (
           <div
             onClick={searchBox}
-            onMouseOut={toggleSearch}
             className="w-full absolute top-[80px] left-0"
           >
-            <div className="bg-black/50 px-[15px] py-[10px] border-red-700 border-[2px] flex gap-[20px] items-center rounded-lg relative">
-              <input
+            <div className="w-full">
+              <Search
+                animationdata={animationdata}
+                moviedata={moviedata}
+                showSearchList={showSearchList}
+                handleSearchSubmit={handleSearchSubmit}
+                handleCloseSearchList={handleCloseSearchList}
+              />
+              {/* <input
                 type="text"
                 className="w-[80%] bg-black/10 text-[0.75rem] text-slate-100 px-1 outline-none"
                 placeholder="Search for movie"
               />
               <button className="py-1 px-2 bg-red-700 rounded-md text-[0.85rem] absolute right-3">
                 Search
-              </button>
+              </button> */}
             </div>
           </div>
         )}

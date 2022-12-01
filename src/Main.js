@@ -4,7 +4,7 @@ import three from "./images/jelly-three-red-lines-2.png";
 //import movieImg from "./images/red-lorenzo-bg.jpg";
 import moviedata from "./data/movieData.json";
 import animationdata from "./data/animationData.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Moviecard from "./components/Moviecard";
 import Form from "./components/Form";
 import contact from "./images/matey-man-and-woman-work-in-support-service.png";
@@ -12,20 +12,34 @@ import popcorn from "./images/linus-mimietz-uWjBqbCHY7g-unsplash.jpg";
 import { Link } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
 import Animationcard from "./components/Animationcard";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-const Main = () => {
+const Main = ({ showSearchList, handleCloseSearchList }) => {
+  useEffect(() => {
+    AOS.init();
+  });
+
   //to display five random movies
   const [movies] = useState(moviedata);
-  let moviesCopy = [...movies];
+  const [homeMovies, setHomeMovies] = useState([]);
   //to shuffle the movie array
-  const randomMovies = moviesCopy.sort(() => 0.5 - Math.random());
-  let fiveMovies = randomMovies.slice(0, 20);
+  useEffect(() => {
+    let moviesCopy = [...movies];
+    const randomMovies = moviesCopy.sort(() => 0.5 - Math.random());
+    let firstTwentyMovies = randomMovies.slice(0, 20);
+    setHomeMovies(firstTwentyMovies);
+  }, [movies]);
 
   const [animations] = useState(animationdata);
-  let animationCopy = [...animations];
-  //to shuffle the movie array
-  const randomAnimations = animationCopy.sort(() => 0.5 - Math.random());
-  let fiveAnimations = randomAnimations.slice(0, 20);
+  const [homeAnimations, setHomeAnimations] = useState([]);
+
+  useEffect(() => {
+    let animationCopy = [...animations];
+    const randomAnimations = animationCopy.sort(() => 0.5 - Math.random());
+    let firstTwentyAnimations = randomAnimations.slice(0, 20);
+    setHomeAnimations(firstTwentyAnimations);
+  }, [animations]);
 
   //random display state
   const [randomDisplay, setRandomDisplay] = useState({
@@ -111,9 +125,13 @@ const Main = () => {
         </div>
       </section>
 
-      <section className="w-full px-4 bg-gradient-to-b from-[#020d18] to-[#111827] md:px-[50px] pt-[80px] pb-[120px] md:pb-[250px] relative">
+      <section className="w-full px-4 bg-gradient-to-b from-[#020d18] to-[#111827] md:px-[50px] pt-[80px] pb-[120px] md:pb-[250px] relative overflow-x-hidden">
         <div className="w-full block md:flex justify-between">
-          <div className="w-full md:w-[fit-content] relative">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="800"
+            className="w-full md:w-[fit-content] relative"
+          >
             <h2 className="text-[1.75rem] md:text-[2.2rem] font-[700]">
               Trending {randomDisplay.movieDisplay && "Movies"}{" "}
               {randomDisplay.seriesDisplay && "Series"}{" "}
@@ -126,7 +144,11 @@ const Main = () => {
               className="w-[40px] h-[40px] hidden lg:block absolute top-[-20px] right-[90px] md:right-[-30px]"
             />
           </div>
-          <div className="text-right mt-8 md:mt-0">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="800"
+            className="text-right mt-8 md:mt-0"
+          >
             <h3 className="text-[1.5rem] font-[600]">Categories</h3>
             <div className="w-full md:w-[fit-content] mt-4 md:mt-10 flex justify-end gap-4 md:gap-8 text-[0.75rem] md:text-[1rem]">
               <button
@@ -136,6 +158,14 @@ const Main = () => {
                 } rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
               >
                 Movie
+              </button>
+              <button
+                onClick={handleDisplayAnimation}
+                className={`px-[10px] py-1 h-[fit-content] md:py-2 ${
+                  randomDisplay.animationDisplay && "bg-red-700"
+                } rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
+              >
+                Animation
               </button>
               <button
                 className={`px-[10px] py-1 h-[fit-content] md:py-2 ${
@@ -151,14 +181,6 @@ const Main = () => {
               >
                 Anime
               </button>
-              <button
-                onClick={handleDisplayAnimation}
-                className={`px-[10px] py-1 h-[fit-content] md:py-2 ${
-                  randomDisplay.animationDisplay && "bg-red-700"
-                } rounded-md border-red-700 border-[2px] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
-              >
-                Animation
-              </button>
             </div>
           </div>
         </div>
@@ -166,8 +188,15 @@ const Main = () => {
           {randomDisplay.movieDisplay && (
             <div>
               <div className="w-full bg-black/30 mt-10 mb-8 p-5 gap-5 rounded-lg grid grid-flow-col place-items-center scroll-auto overflow-y-auto overscroll-x-contain snap-mandatory md:snap-none snap-x no-scrollbar">
-                {fiveMovies?.map((item, index) => {
-                  return <Moviecard key={index} item={item} />;
+                {homeMovies?.map((item, index) => {
+                  return (
+                    <Moviecard
+                      key={index}
+                      item={item}
+                      showSearchList={showSearchList}
+                      handleCloseSearchList={handleCloseSearchList}
+                    />
+                  );
                 })}
               </div>
               <Link to="/movies">
@@ -181,7 +210,7 @@ const Main = () => {
           {randomDisplay.animationDisplay && (
             <div>
               <div className="w-full bg-black/30 mt-10 mb-8 p-5 gap-5 rounded-lg grid grid-flow-col place-items-center scroll-auto overflow-y-auto overscroll-x-contain snap-mandatory snap-x no-scrollbar">
-                {fiveAnimations?.map((item, index) => {
+                {homeAnimations?.map((item, index) => {
                   return <Animationcard key={index} item={item} />;
                 })}
               </div>
@@ -206,17 +235,23 @@ const Main = () => {
         </svg>
       </section>
 
-      <section className="w-full bg-black/30 px-4 md:px-[50px] pb-[80px] text-[2rem] translate-y-[-1px] border border-black/30">
+      <section className="w-full bg-black/30 px-4 md:px-[50px] pb-[80px] text-[2rem] translate-y-[-1px] border border-black/30 overflow-hidden">
         <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between">
           <img
             alt=""
             src={popcorn}
             className="w-[35%] h-[500px] object-cover rounded-full mx-auto hidden md:block"
+            data-aos="fade-up"
+            data-aos-duration="800"
           />
           <div className="w-full md:w-1/2 text-right text-[1.4rem] mt-8 md:mt-0">
-            <div className="w-full text-right">
+            <div
+              data-aos="fade-left"
+              data-aos-duration="800"
+              className="w-full text-right"
+            >
               <h2 className=" text-[2.2rem] font-[700] mb-5">
-                Download Movies.
+                Download Movies,
                 <br /> Watch Offline.
               </h2>
             </div>
@@ -224,14 +259,25 @@ const Main = () => {
               alt=""
               src={popcorn}
               className="w-full my-6 h-[500px] object-cover rounded-full mx-auto md:hidden block"
+              data-aos="fade-up"
+              data-aos-duration="800"
             />
-            <p>
-              Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod
-              There are many variations of passages of lorem Ipsum available,
-              but the majority have suffered alteration.
+            <p data-aos="fade-up" data-aos-duration="800">
+              Tons of movies to choose from in all genres! Amazing blockbusters
+              all here at LorenzoTV. <br /> Download and watch offline in...
             </p>
-            <p className="text-[4rem] text-[#b91c1c] font-bold">HD 4K</p>
-            <button className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+            <p
+              data-aos="fade-up"
+              data-aos-duration="800"
+              className="text-[4rem] text-[#b91c1c] font-bold"
+            >
+              HD 4K
+            </p>
+            <button
+              data-aos="fade-up"
+              data-aos-duration="800"
+              className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300"
+            >
               Explore Movies
             </button>
           </div>

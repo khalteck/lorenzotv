@@ -1,9 +1,20 @@
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Moviecard = (props) => {
+  useEffect(() => {
+    AOS.init();
+  });
   return (
     <Link to={`/movie/${props.item.title}`}>
-      <div className="bg-[#0f172a] w-[220px] h-[420px] p-4 rounded-lg text-center snap-center snap-always relative">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="700"
+        onClick={props.handleCloseSearchList}
+        className="bg-[#0f172a] w-[220px] h-[420px] p-4 rounded-lg text-center snap-center snap-always relative"
+      >
         <img
           alt=""
           src={props.item.coverImage}

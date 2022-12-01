@@ -10,16 +10,34 @@ import Animation from "./pages/Animation";
 import Details from "./pages/Details";
 import AnimationDetails from "./pages/AnimationDetails";
 import "./output.css";
+import { useState } from "react";
 
 function App() {
+  const [showSearchList, setShowSearchList] = useState(false);
+
+  function handleSearchSubmit(event) {
+    event.preventDefault();
+    setShowSearchList(true);
+  }
+  function handleCloseSearchList() {
+    setShowSearchList(false);
+    console.log("close clicked!!");
+  }
   return (
     <Router>
       <div className="app">
-        <Header />
+        <Header
+          showSearchList={showSearchList}
+          handleSearchSubmit={handleSearchSubmit}
+          handleCloseSearchList={handleCloseSearchList}
+        />
         <div className="content-per-page">
           <Switch>
             <Route exact path="/">
-              <Main />
+              <Main
+                showSearchList={showSearchList}
+                handleCloseSearchList={handleCloseSearchList}
+              />
             </Route>
             <Route path="/about">
               <About />
