@@ -273,13 +273,15 @@ const Main = ({ showSearchList, handleCloseSearchList }) => {
             >
               HD 4K
             </p>
-            <button
-              data-aos="fade-up"
-              data-aos-duration="800"
-              className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300"
-            >
-              Explore Movies
-            </button>
+            <Link to="/movies">
+              <button
+                data-aos="fade-up"
+                data-aos-duration="800"
+                className="px-[40px] py-[15px] mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300"
+              >
+                Explore Movies
+              </button>
+            </Link>
           </div>
         </div>
       </section>
