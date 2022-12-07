@@ -12,6 +12,7 @@ const Animationcard = (props) => {
       <div
         data-aos="fade-up"
         data-aos-duration="900"
+        onClick={props.handleCloseSearchList}
         className="bg-[#0f172a] w-[220px] h-[420px] p-4 rounded-lg text-center snap-center snap-always relative"
       >
         <img
