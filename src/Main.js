@@ -95,6 +95,11 @@ const Main = ({ showSearchList, handleCloseSearchList }) => {
 
   return (
     <main className="text-slate-100">
+      <Link to="/advertisement">
+        <div className="w-[fit-content] p-2 sm:p-3 bg-red-700 rounded-md text-[1rem] font-bold fixed bottom-5 left-5 sm:bottom-10 sm:left-0 z-50 cursor-pointer">
+          AD
+        </div>
+      </Link>
       <section className="w-full min-h-screen bg-[url('./images/lorenzo-bg-image.png')] bg-no-repeat">
         <div className="w-full min-h-screen bg-[#020d18]/95 px-4 py-[100px] md:p-[50px] block md:flex justify-between items-center">
           <div className="w-full md:w-1/2">
@@ -286,7 +291,7 @@ const Main = ({ showSearchList, handleCloseSearchList }) => {
         </div>
       </section>
       <section className="w-full bg-[#020d18] bg-home text-[2rem]">
-        <div className="overlay w-full h-full bg-[#020d18]/60 px-4 md:px-[50px] py-[80px] block md:flex justify-between text-[1rem]">
+        <div className="overlay w-full h-full bg-[#020d18]/60 px-4 md:px-[50px] py-[80px] block md:flex justify-between items-center text-[1rem]">
           <div className="w-full md:w-[40%] text-center">
             <h2 className="text-[2.5rem] font-bold">Get in Touch</h2>
             <p className="text-[1.4rem]">

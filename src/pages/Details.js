@@ -34,11 +34,18 @@ const Details = () => {
             <span className="text-red-600 font-[700]">STORY LINE:</span>{" "}
             {movie?.storyLine}
           </h2>
-          <a href={`${movie?.downloadLink}`}>
-            <button className="px-[40px] py-[15px] font-bold mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
-              Download
-            </button>
-          </a>
+          <div className="w-full text-center block sm:flex gap-8">
+            <a href={`${movie?.downloadLink}`}>
+              <button className="px-[40px] py-[15px] font-bold mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+                Download {movie?.category}
+              </button>
+            </a>
+            <a href={`${movie?.subtitleLink}`}>
+              <button className="px-[40px] py-[15px] font-bold mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
+                Download Subtitle
+              </button>
+            </a>
+          </div>
         </div>
       </div>
       <ScrollToTop />

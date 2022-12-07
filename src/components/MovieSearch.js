@@ -4,6 +4,7 @@ import SearchList from "./SearchList";
 
 const MovieSearch = ({ moviedata }) => {
   const [showSearchList, setShowSearchList] = useState(false);
+  const [searchField, setSearchField] = useState("");
 
   function handleSearchSubmit(event) {
     event.preventDefault();
@@ -11,11 +12,10 @@ const MovieSearch = ({ moviedata }) => {
   }
   function handleCloseSearchList() {
     setShowSearchList(false);
+    setSearchField("");
   }
 
   let searchData = [...moviedata];
-  //   console.log(searchData);
-  const [searchField, setSearchField] = useState("");
 
   const filteredItems = searchData.filter((item) => {
     return item.title.toLowerCase().includes(searchField.toLowerCase());
@@ -45,6 +45,7 @@ const MovieSearch = ({ moviedata }) => {
             className="w-[85%] lg:w-[85%] bg-inherit text-[0.75rem] text-slate-100 px-1 outline-none"
             placeholder="Search for movie"
             onChange={handleChange}
+            value={searchField}
           />
           <button
             onClick={handleSearchSubmit}
