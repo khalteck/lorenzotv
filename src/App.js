@@ -11,6 +11,8 @@ import Details from "./pages/Details";
 import AnimationDetails from "./pages/AnimationDetails";
 import "./output.css";
 import { useState } from "react";
+import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
 
 function App() {
   const [showSearchList, setShowSearchList] = useState(false);
@@ -43,7 +45,11 @@ function App() {
               <About />
             </Route>
             <Route exact path="/movies">
-              <Movies />
+              <Movies
+                showSearchList={showSearchList}
+                handleSearchSubmit={handleSearchSubmit}
+                handleCloseSearchList={handleCloseSearchList}
+              />
             </Route>
             <Route path="/series">
               <Series />
@@ -52,13 +58,23 @@ function App() {
               <Anime />
             </Route>
             <Route path="/animation">
-              <Animation />
+              <Animation
+                showSearchList={showSearchList}
+                handleSearchSubmit={handleSearchSubmit}
+                handleCloseSearchList={handleCloseSearchList}
+              />
             </Route>
             <Route exact path="/movie/:title">
               <Details />
             </Route>
             <Route exact path="/animations/:title">
               <AnimationDetails />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/privacy-policy">
+              <Privacy />
             </Route>
           </Switch>
         </div>

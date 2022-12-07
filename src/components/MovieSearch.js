@@ -2,14 +2,18 @@ import React, { useState } from "react";
 //import search from "../images/icons8-search-50.png";
 import SearchList from "./SearchList";
 
-const Search = ({
-  animationdata,
-  moviedata,
-  handleSearchSubmit,
-  showSearchList,
-  handleCloseSearchList,
-}) => {
-  let searchData = [...animationdata, ...moviedata];
+const MovieSearch = ({ moviedata }) => {
+  const [showSearchList, setShowSearchList] = useState(false);
+
+  function handleSearchSubmit(event) {
+    event.preventDefault();
+    setShowSearchList(true);
+  }
+  function handleCloseSearchList() {
+    setShowSearchList(false);
+  }
+
+  let searchData = [...moviedata];
   //   console.log(searchData);
   const [searchField, setSearchField] = useState("");
 
@@ -67,4 +71,4 @@ const Search = ({
   );
 };
 
-export default Search;
+export default MovieSearch;

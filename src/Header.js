@@ -82,22 +82,36 @@ const Header = ({
                 className="w-[200px] p-3 bg-[#020d18] text-center absolute top-[40px] left-[-40px] rounded-md z-[100]"
               >
                 <Link to="/movies">
-                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                  <div
+                    onClick={handleMouseOut}
+                    className="py-2 hover:bg-red-700 border-b border-b-slate-600"
+                  >
                     Movies
                   </div>
                 </Link>
+                <Link to="/animation">
+                  <div
+                    onClick={handleMouseOut}
+                    className="py-2 hover:bg-red-700 border-b border-b-slate-600"
+                  >
+                    Animations
+                  </div>
+                </Link>
                 <Link to="/series">
-                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                  <div
+                    onClick={handleMouseOut}
+                    className="py-2 hover:bg-red-700 border-b border-b-slate-600"
+                  >
                     Series
                   </div>
                 </Link>
                 <Link to="/anime">
-                  <div className="py-2 hover:bg-red-700 border-b border-b-slate-600">
+                  <div
+                    onClick={handleMouseOut}
+                    className="py-2 hover:bg-red-700"
+                  >
                     Animes
                   </div>
-                </Link>
-                <Link to="/animation">
-                  <div className="py-2 hover:bg-red-700 ">Animations</div>
                 </Link>
               </div>
             )}
