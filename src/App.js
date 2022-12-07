@@ -10,22 +10,46 @@ import Animation from "./pages/Animation";
 import Details from "./pages/Details";
 import AnimationDetails from "./pages/AnimationDetails";
 import "./output.css";
+import { useState } from "react";
+import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
 
 function App() {
+  const [showSearchList, setShowSearchList] = useState(false);
+
+  function handleSearchSubmit(event) {
+    event.preventDefault();
+    setShowSearchList(true);
+  }
+  function handleCloseSearchList() {
+    setShowSearchList(false);
+    console.log("close clicked!!");
+  }
   return (
     <Router>
       <div className="app">
-        <Header />
+        <Header
+          showSearchList={showSearchList}
+          handleSearchSubmit={handleSearchSubmit}
+          handleCloseSearchList={handleCloseSearchList}
+        />
         <div className="content-per-page">
           <Switch>
             <Route exact path="/">
-              <Main />
+              <Main
+                showSearchList={showSearchList}
+                handleCloseSearchList={handleCloseSearchList}
+              />
             </Route>
             <Route path="/about">
               <About />
             </Route>
             <Route exact path="/movies">
-              <Movies />
+              <Movies
+                showSearchList={showSearchList}
+                handleSearchSubmit={handleSearchSubmit}
+                handleCloseSearchList={handleCloseSearchList}
+              />
             </Route>
             <Route path="/series">
               <Series />
@@ -34,13 +58,23 @@ function App() {
               <Anime />
             </Route>
             <Route path="/animation">
-              <Animation />
+              <Animation
+                showSearchList={showSearchList}
+                handleSearchSubmit={handleSearchSubmit}
+                handleCloseSearchList={handleCloseSearchList}
+              />
             </Route>
             <Route exact path="/movie/:title">
               <Details />
             </Route>
             <Route exact path="/animations/:title">
               <AnimationDetails />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/privacy-policy">
+              <Privacy />
             </Route>
           </Switch>
         </div>

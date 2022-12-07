@@ -4,6 +4,7 @@ import whatsapp from "./images/icons8-whatsapp-48.png";
 import facebook from "./images/icons8-facebook-48.png";
 import instagram from "./images/icons8-instagram-48.png";
 import youtube from "./images/icons8-youtube-logo-48.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -23,13 +24,13 @@ const Footer = () => {
             </div>
           </li>
           <li className="w-[fit-content] mb-2 cursor-pointer hover:text-red-500">
-            About Us
+            <Link to="/about">About Us</Link>
           </li>
           <li className="w-[fit-content] mb-2 cursor-pointer hover:text-red-500">
-            Contact
+            <Link to="/contact">Contact</Link>
           </li>
           <li className="w-[fit-content] mb-2 cursor-pointer hover:text-red-500">
-            Blog
+            <a href="http://Lorenzotvblog.netlify.app">Blog</a>
           </li>
         </ul>
 
@@ -38,7 +39,7 @@ const Footer = () => {
             Terms of use
           </li>
           <li className="w-[fit-content] mb-2 cursor-pointer hover:text-red-500">
-            Privacy policy
+            <Link to="/privacy-policy">Privacy policy</Link>
           </li>
         </ul>
 
@@ -47,31 +48,41 @@ const Footer = () => {
             Follow us
           </h3>
           <div className="flex gap-3">
-            <img
-              alt=""
-              src={twitter}
-              className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
-            />
-            <img
-              alt=""
-              src={whatsapp}
-              className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
-            />
-            <img
-              alt=""
-              src={instagram}
-              className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
-            />
-            <img
-              alt=""
-              src={facebook}
-              className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
-            />
-            <img
-              alt=""
-              src={youtube}
-              className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
-            />
+            <a href="https://twitter.com/only_lorenzotv?t=EA5tDqgTaohSzHsJa0_2qQ&s=09">
+              <img
+                alt=""
+                src={twitter}
+                className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
+              />
+            </a>
+            <a href="https://wa.me/message/2MVJUHWZBG6DM1">
+              <img
+                alt=""
+                src={whatsapp}
+                className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
+              />
+            </a>
+            <a href="https://instagram.com/lorenzo_tv1?igshid=YmMyMTA2M2Y=">
+              <img
+                alt=""
+                src={instagram}
+                className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
+              />
+            </a>
+            <a href="https://www.facebook.com/lorenzarts12">
+              <img
+                alt=""
+                src={facebook}
+                className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
+              />
+            </a>
+            <a href="https://youtu.be/mU6anWqZJcc">
+              <img
+                alt=""
+                src={youtube}
+                className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
+              />
+            </a>
           </div>
         </div>
 
