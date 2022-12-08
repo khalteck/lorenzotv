@@ -55,15 +55,15 @@ const Header = ({
       <div className="w-full h-[80px] px-[50px] text-slate-100 bg-[#020d18] hidden lg:flex items-center border-slate-700 border-b fixed top-0 left-0 z-[100]">
         {/**logo div */}
         <div className="flex items-center">
-          <img alt="logo" src={logo} className="w-[40px] h-[40px] rounded-lg" />
-          <p className="font-[700] tracking-wider text-[1.85rem] ml-2">
+          <img alt="logo" src={logo} className="w-[30px] h-[30px] rounded-lg" />
+          <p className="font-[700] tracking-wider text-[1.5rem] ml-2">
             LORENZO TV
           </p>
         </div>
         {/**logo div */}
 
         {/**nav bar */}
-        <nav className="font-[600] flex gap-[30px] ml-[100px] mr-auto">
+        <nav className="font-[600] flex gap-[30px] ml-[100px] mr-auto text-[0.85rem]">
           <Link
             to="/"
             onMouseOver={handleMouseOut}
@@ -71,7 +71,10 @@ const Header = ({
           >
             Home
           </Link>
-          <div onMouseOver={handleMovieHover} className={`relative`}>
+          <div
+            onMouseOver={handleMovieHover}
+            className={`relative text-[0.85rem]`}
+          >
             <div className="px-[10px] py-[5px] flex gap-3 items-center rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 cursor-pointer relative">
               Movies
               <img alt="" src={movieHover ? up : down} className="h-3 w-3" />
@@ -136,8 +139,8 @@ const Header = ({
         {/**nav bar */}
 
         <Link to="/advertisement">
-          <div className="w-[fit-content] mr-4 p-2 sm:p-3 bg-red-700 rounded-lg text-[0.8rem] font-bold cursor-pointer">
-            AD
+          <div className="w-[fit-content] mr-4 p-2 sm:p-3 bg-red-700 rounded-lg text-[0.8rem] font-bold cursor-pointer hover:translate-y-[6px] transition-all duration-300">
+            Advertise
           </div>
         </Link>
 
@@ -272,9 +275,9 @@ const Header = ({
                 <div className="w-full">Blog</div>
               </a>
             </li>
-            <li className="my-4 text-red-700">
+            <li className="my-4 bg-red-700 rounded-lg text-center py-1">
               <Link to="/advertisement" onClick={hideDropdown}>
-                <div className="w-full">Advertise with Us</div>
+                <div className="w-full">Advertise</div>
               </Link>
             </li>
           </ul>

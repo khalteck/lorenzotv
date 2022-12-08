@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ScrollToTop from "../ScrollToTop";
+import logo from "../images/logo-lorenzo.jpg";
 
 const Ad = () => {
   return (
@@ -7,6 +8,11 @@ const Ad = () => {
       <h1 className="w-[fit-content] mb-4 sm:w-full text-[1.75rem] md:text-[2.2rem] font-[700] mx-auto">
         ADVERTISE WITH US
       </h1>
+      <img
+        alt=""
+        src={logo}
+        className="w-[250px] h-auto my-8 rounded-3xl mx-auto sm:mx-0"
+      />
       <p>
         LorenzoTv.com generates over 1million page views daily from over 500,000
         unique visitors from all around the world. LorenzoTV is targeted at

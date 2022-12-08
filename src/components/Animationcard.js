@@ -8,7 +8,10 @@ const Animationcard = (props) => {
     AOS.init();
   });
   return (
-    <Link to={`/animations/${props.item.title}`}>
+    <Link
+      to={`/animations/${props.item.title}`}
+      className="hover:scale-110 transition-all duration-300"
+    >
       <div
         data-aos="fade-up"
         data-aos-duration="900"

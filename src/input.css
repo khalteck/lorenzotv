@@ -28,4 +28,16 @@
   .grid-lg {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
+
+  .pop {
+    animation: pop 0.8s ease-out;
+  }
+  @keyframes pop {
+    0% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1.2, 1.2);
+    }
+  }
 }
