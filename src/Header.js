@@ -135,6 +135,12 @@ const Header = ({
         </nav>
         {/**nav bar */}
 
+        <Link to="/advertisement">
+          <div className="w-[fit-content] mr-4 p-2 sm:p-3 bg-red-700 rounded-lg text-[0.8rem] font-bold cursor-pointer">
+            AD
+          </div>
+        </Link>
+
         <div className="w-[250px]">
           <Search
             animationdata={animationdata}
@@ -265,6 +271,11 @@ const Header = ({
               <a href="http://Lorenzotvblog.netlify.app" onClick={hideDropdown}>
                 <div className="w-full">Blog</div>
               </a>
+            </li>
+            <li className="my-4 text-red-700">
+              <Link to="/advertisement" onClick={hideDropdown}>
+                <div className="w-full">Advertise with Us</div>
+              </Link>
             </li>
           </ul>
         </div>

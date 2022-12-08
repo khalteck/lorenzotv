@@ -95,11 +95,11 @@ const Main = ({ showSearchList, handleCloseSearchList }) => {
 
   return (
     <main className="text-slate-100">
-      <Link to="/advertisement">
+      {/* <Link to="/advertisement">
         <div className="w-[fit-content] p-2 sm:p-3 bg-red-700 rounded-md text-[1rem] font-bold fixed bottom-5 left-5 sm:bottom-10 sm:left-0 z-50 cursor-pointer">
           AD
         </div>
-      </Link>
+      </Link> */}
       <section className="w-full min-h-screen bg-[url('./images/lorenzo-bg-image.png')] bg-no-repeat">
         <div className="w-full min-h-screen bg-[#020d18]/95 px-4 py-[100px] md:p-[50px] block md:flex justify-between items-center">
           <div className="w-full md:w-1/2">
