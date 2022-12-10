@@ -26,6 +26,9 @@ function App() {
     setShowSearchList(false);
   }
 
+  // const location = useLocation();
+  // console.log(location.pathname);
+
   return (
     <Router>
       <div className="app">
