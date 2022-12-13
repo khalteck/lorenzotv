@@ -1,6 +1,8 @@
 import ScrollToTop from "../ScrollToTop";
 import { useParams } from "react-router-dom";
 import animationData from "../data/animationData.json";
+import cinema from "../images/icons8-cinema-50.png"
+import file from "../images/icons8-file-64.png"
 
 const AnimationDetails = () => {
   const { title } = useParams();
@@ -36,13 +38,13 @@ const AnimationDetails = () => {
           </h2>
           <div className="w-full text-center block sm:flex gap-8">
             <a href={`${movie?.downloadLink}`}>
-              <button className="px-[40px] py-[15px] font-bold mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
-                Download
+              <button className="px-[40px] py-[15px] font-bold mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 flex items-center gap-2">
+              <p>Download {movie?.category}</p> <img alt="" src={cinema} className="w-5 h-5"/>
               </button>
             </a>
             <a href={`${movie?.subtitleLink}`}>
-              <button className="px-[40px] py-[15px] font-bold mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300">
-                Download Subtitle
+              <button className="px-[40px] py-[15px] font-bold mt-4 rounded-md bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 flex items-center gap-2">
+              <p>Download Subtitle</p> <img alt="" src={file} className="w-5 h-5"/>
               </button>
             </a>
           </div>
