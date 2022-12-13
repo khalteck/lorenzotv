@@ -79,7 +79,7 @@ const Footer = () => {
                 className="w-[30px] h-[30px] cursor-pointer hover:translate-y-[6px] transition-all duration-300"
               />
             </a>
-            <a href="https://youtu.be/mU6anWqZJcc">
+            <a href="https://www.youtube.com/@only_lorenzotv">
               <img
                 alt=""
                 src={youtube}
