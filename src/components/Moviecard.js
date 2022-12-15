@@ -8,7 +8,10 @@ const Moviecard = (props) => {
     AOS.init();
   });
   return (
-    <Link to={`/movie/${props.item.title}`}>
+    <Link
+      to={`/movie/${props.item.title}`}
+      className="hover:scale-110 transition-all duration-300"
+    >
       <div
         data-aos="fade-up"
         data-aos-duration="700"

@@ -32,6 +32,9 @@ const Footer = () => {
           <li className="w-[fit-content] mb-2 cursor-pointer hover:text-red-500">
             <a href="http://Lorenzotvblog.netlify.app">Blog</a>
           </li>
+          <li className="w-[fit-content] p-2 bg-red-700 rounded-lg hover:bg-[inherit] border-red-700 border-2 mb-2 cursor-pointer hover:text-red-500">
+            <Link to="/advertisement">Advertise</Link>
+          </li>
         </ul>
 
         <ul className="mb-10 md:mb-0">

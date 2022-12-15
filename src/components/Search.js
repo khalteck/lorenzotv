@@ -41,6 +41,7 @@ const Search = ({
             className="w-[85%] lg:w-[85%] bg-inherit text-[0.75rem] text-slate-100 px-1 outline-none"
             placeholder="Search for movie"
             onChange={handleChange}
+            value={searchField}
           />
           <button
             onClick={handleSearchSubmit}

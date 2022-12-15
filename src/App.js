@@ -13,6 +13,7 @@ import "./output.css";
 import { useState } from "react";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
+import Ad from "./pages/Ad";
 
 function App() {
   const [showSearchList, setShowSearchList] = useState(false);
@@ -23,8 +24,11 @@ function App() {
   }
   function handleCloseSearchList() {
     setShowSearchList(false);
-    console.log("close clicked!!");
   }
+
+  // const location = useLocation();
+  // console.log(location.pathname);
+
   return (
     <Router>
       <div className="app">
@@ -75,6 +79,9 @@ function App() {
             </Route>
             <Route path="/privacy-policy">
               <Privacy />
+            </Route>
+            <Route path="/advertisement">
+              <Ad />
             </Route>
           </Switch>
         </div>

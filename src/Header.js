@@ -2,7 +2,7 @@ import logo from "./images/logo-lorenzo.jpg";
 import search from "./images/icons8-search-50.png";
 import menu from "./images/icons8-menu-squared-50.png";
 import close from "./images/icons8-close-window-50.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import up from "./images/icons8-up-24.png";
 import down from "./images/icons8-chevron-24.png";
@@ -49,30 +49,90 @@ const Header = ({
     setMovieDrop((prevState) => !prevState);
   }
 
+  // const [currentPage, setCurrentPage] = useState({
+  //   home: false,
+  //   about: false,
+  //   movie: false,
+  // })
+
+  //to save currentPage to local storage
+  const [currentPage, setCurrentPage] = useState(JSON.parse(localStorage.getItem("page")) || {
+    home: false,
+    about: false,
+    movie: false,
+  })
+  useEffect(() => {
+      localStorage.setItem("page", JSON.stringify(currentPage))
+  } , [currentPage])
+
+  function homeTag() {
+    setCurrentPage(prev => {
+      return {
+        home: true,
+        about: false,
+        movie: false
+      }
+    })
+  }
+
+  function aboutTag() {
+    setCurrentPage(prev => {
+      return {
+        home: false,
+        about: true,
+        movie: false
+      }
+    })
+  }
+
+  function movieTag() {
+    setCurrentPage(prev => {
+      return {
+        home: false,
+        about: false,
+        movie: true
+      }
+    })
+  }
+
+  function resetCurrentPage() {
+    setCurrentPage(prev => {
+      return {
+        home: false,
+        about: false,
+        movie: false
+      }
+    })
+  }
+
   return (
     <header>
       {/**Desktop header */}
       <div className="w-full h-[80px] px-[50px] text-slate-100 bg-[#020d18] hidden lg:flex items-center border-slate-700 border-b fixed top-0 left-0 z-[100]">
         {/**logo div */}
         <div className="flex items-center">
-          <img alt="logo" src={logo} className="w-[40px] h-[40px] rounded-lg" />
-          <p className="font-[700] tracking-wider text-[1.85rem] ml-2">
+          <img alt="logo" src={logo} className="w-[30px] h-[30px] rounded-lg" />
+          <p className="font-[700] tracking-wider text-[1.5rem] ml-2">
             LORENZO TV
           </p>
         </div>
         {/**logo div */}
 
         {/**nav bar */}
-        <nav className="font-[600] flex gap-[30px] ml-[100px] mr-auto">
+        <nav className="font-[600] flex gap-[30px] ml-[100px] mr-auto text-[0.85rem]">
           <Link
             to="/"
             onMouseOver={handleMouseOut}
-            className="px-[10px] py-[5px] rounded-md bg-[#b91c1c] hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300"
+            onClick={homeTag}
+            className={`px-[10px] py-[5px] rounded-md ${currentPage?.home ? "bg-[#b91c1c]" : "bg-[inherit]"} hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
           >
             Home
           </Link>
-          <div onMouseOver={handleMovieHover} className={`relative`}>
-            <div className="px-[10px] py-[5px] flex gap-3 items-center rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 cursor-pointer relative">
+          <div
+            onMouseOver={handleMovieHover}
+            className={`relative text-[0.85rem]`}
+          >
+            <div onClick={movieTag} className={`px-[10px] py-[5px] flex gap-3 items-center ${currentPage?.movie ? "bg-[#b91c1c]" : "bg-[inherit]"} rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 cursor-pointer relative`}>
               Movies
               <img alt="" src={movieHover ? up : down} className="h-3 w-3" />
             </div>
@@ -83,7 +143,10 @@ const Header = ({
               >
                 <Link to="/movies">
                   <div
-                    onClick={handleMouseOut}
+                    onClick={ () => {
+                      handleMouseOut()
+                      movieTag()
+                    }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
                     Movies
@@ -91,7 +154,10 @@ const Header = ({
                 </Link>
                 <Link to="/animation">
                   <div
-                    onClick={handleMouseOut}
+                    onClick={ () => {
+                      handleMouseOut()
+                      movieTag()
+                    }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
                     Animations
@@ -99,7 +165,10 @@ const Header = ({
                 </Link>
                 <Link to="/series">
                   <div
-                    onClick={handleMouseOut}
+                    onClick={ () => {
+                      handleMouseOut()
+                      movieTag()
+                    }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
                     Series
@@ -107,7 +176,10 @@ const Header = ({
                 </Link>
                 <Link to="/anime">
                   <div
-                    onClick={handleMouseOut}
+                    onClick={ () => {
+                      handleMouseOut()
+                      movieTag()
+                    }}
                     className="py-2 hover:bg-red-700"
                   >
                     Animes
@@ -119,7 +191,8 @@ const Header = ({
           <Link
             to="/about"
             onMouseOver={handleMouseOut}
-            className="px-[10px] py-[5px] rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300"
+            onClick={aboutTag}
+            className={`px-[10px] py-[5px] rounded-md ${currentPage?.about ? "bg-[#b91c1c]" : "bg-[inherit]"} hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
           >
             About Us
           </Link>
@@ -134,6 +207,12 @@ const Header = ({
           </a>
         </nav>
         {/**nav bar */}
+
+        <Link to="/advertisement" onClick={resetCurrentPage}>
+          <div className="w-[fit-content] mr-4 p-2 sm:p-3 bg-red-700 rounded-lg text-[0.8rem] font-bold cursor-pointer hover:translate-y-[6px] transition-all duration-300">
+            Advertise
+          </div>
+        </Link>
 
         <div className="w-[250px]">
           <Search
@@ -265,6 +344,11 @@ const Header = ({
               <a href="http://Lorenzotvblog.netlify.app" onClick={hideDropdown}>
                 <div className="w-full">Blog</div>
               </a>
+            </li>
+            <li className="my-4 bg-red-700 rounded-lg text-center py-1">
+              <Link to="/advertisement" onClick={hideDropdown}>
+                <div className="w-full">Advertise</div>
+              </Link>
             </li>
           </ul>
         </div>
