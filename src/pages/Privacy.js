@@ -42,7 +42,7 @@ const Privacy = () => {
         <strong>DoubleClick DART Cookie</strong> <br />
         <br />
         .:: Google, as a third party vendor, uses cookies to serve ads on
-        www.netnaija.com. .:: Google's use of the DART cookie enables it to
+        www.lorenzoTv.com. .:: Google's use of the DART cookie enables it to
         serve ads to users based on their visit to www.doncaprio.com and other
         sites on the Internet. .:: Users may opt out of the use of the DART
         cookie by visiting the Google ad and content network privacy policy at
@@ -54,7 +54,7 @@ const Privacy = () => {
         <br />
         <br />
         These third-party ad servers or ad networks use technology to the
-        advertisements and links that appear on www.netnaija.com send directly
+        advertisements and links that appear on www.lorenzoTv.com send directly
         to your browsers. They automatically receive your IP address when this
         occurs. Other technologies ( such as cookies, JavaScript, or Web Beacons
         ) may also be used by the third-party ad networks to measure the
