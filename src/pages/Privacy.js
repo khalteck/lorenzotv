@@ -14,14 +14,14 @@ const Privacy = () => {
         <br />
         At www.lorenzotv.com, the privacy of our visitors is of extreme
         importance to us. This privacy policy document outlines the types of
-        personal information is received and collected by www.netnaija.com and
+        personal information is received and collected by www.lorenzoTv.com and
         how it is used.
         <br />
         <br />
         <strong>Log Files</strong>
         <br />
         <br />
-        Like many other Web sites, www.netnaija.com makes use of log files. The
+        Like many other Web sites, www.lorenzoTv.com makes use of log files. The
         information inside the log files includes internet protocol ( IP )
         addresses, type of browser, Internet Service Provider ( ISP ), date/time
         stamp, referring/exit pages, and number of clicks to analyze trends,
@@ -59,14 +59,14 @@ const Privacy = () => {
         occurs. Other technologies ( such as cookies, JavaScript, or Web Beacons
         ) may also be used by the third-party ad networks to measure the
         effectiveness of their advertisements and / or to personalize the
-        advertising content that you see. www.netnaija.com has no access to or
+        advertising content that you see. www.lorenzoTv.com has no access to or
         control over these cookies that are used by third-party advertisers.
         <br />
         <br />
         You should consult the respective privacy policies of these third-party
         ad servers for more detailed information on their practices as well as
         for instructions about how to opt-out of certain practices.
-        www.LorenzoTv.com's privacy policy does not apply to, and we cannot
+        www.lorenzoTv.com's privacy policy does not apply to, and we cannot
         control the activities of, such other advertisers or web sites. If you
         wish to disable cookies, you may do so through your individual browser
         options. More detailed information about cookie management with specific
