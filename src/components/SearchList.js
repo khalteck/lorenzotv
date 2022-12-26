@@ -1,9 +1,14 @@
 import Animationcard from "./Animationcard";
 import Moviecard from "./Moviecard";
 
-const SearchList = ({ filteredItems, handleCloseSearchList, searchField }) => {
-  const filtered = filteredItems.map((item, index) =>
-    item.category === "movie" ? (
+const SearchList = ({
+  filteredItems,
+  handleCloseSearchList,
+  searchField,
+  setShowLoader,
+}) => {
+  const filtered = filteredItems.map((item, index) => {
+    return item.category === "movie" ? (
       <Moviecard
         key={index}
         item={item}
@@ -15,10 +20,10 @@ const SearchList = ({ filteredItems, handleCloseSearchList, searchField }) => {
         item={item}
         handleCloseSearchList={handleCloseSearchList}
       />
-    ) : null
-  );
+    ) : null;
+  });
   return (
-    <div className="w-[100vw] min-h-[100vh] pt-[25px] pb-[100px] px-4 md:px-10 bg-[#020d18] fixed left-0 top-[85px] lg:top-[80px] z-[50] overflow-y-scroll overflow-x-hidden no-scrollbar">
+    <div className="w-[100vw] min-h-[100vh] pt-[25px] pb-[100px] px-4 md:px-10 bg-[#020d18] fixed left-0 top-[85px] lg:top-[80px] z-10 overflow-y-scroll overflow-x-hidden no-scrollbar">
       <div className="">
         <h2 className="w-[fit-content] text-[1.1rem] text-slate-100 mx-auto md:text-[1.5rem] mt-4 lg:mt-0">
           The keyword "{searchField}" yielded{" "}

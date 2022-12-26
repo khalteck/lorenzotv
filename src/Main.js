@@ -1,7 +1,6 @@
 import hero from "./images/lorenzo apple touch.jpeg";
 import arcs from "./images/jelly-two-red-lines-1.png";
 import three from "./images/jelly-three-red-lines-2.png";
-//import movieImg from "./images/red-lorenzo-bg.jpg";
 import moviedata from "./data/movieData.json";
 import animationdata from "./data/animationData.json";
 import { useState, useEffect } from "react";
@@ -14,13 +13,14 @@ import ScrollToTop from "./ScrollToTop";
 import Animationcard from "./components/Animationcard";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Loader from "./components/Loader";
 
-const Main = ({ showSearchList, handleCloseSearchList }) => {
+const Main = ({ showSearchList, handleCloseSearchList, showLoader }) => {
   useEffect(() => {
     AOS.init();
   });
 
-  //to display five random movies
+  //to display twenty random movies
   const [movies] = useState(moviedata);
   const [homeMovies, setHomeMovies] = useState([]);
   //to shuffle the movie array
@@ -95,12 +95,13 @@ const Main = ({ showSearchList, handleCloseSearchList }) => {
 
   return (
     <main className="text-slate-100">
+      {/* {showLoader && <Loader />} */}
       {/* <Link to="/advertisement">
         <div className="w-[fit-content] p-2 sm:p-3 bg-red-700 rounded-md text-[1rem] font-bold fixed bottom-5 left-5 sm:bottom-10 sm:left-0 z-50 cursor-pointer">
           AD
         </div>
       </Link> */}
-      <section className="w-full min-h-screen bg-[url('./images/lorenzo-bg-image.png')] bg-no-repeat">
+      <section className="w-full min-h-screen bg-[url('./images/lorenzo-bg-image.png')] bg-repeat">
         <div className="w-full min-h-screen bg-[#020d18]/95 px-4 py-[100px] md:p-[50px] block md:flex justify-between items-center">
           <div className="w-full md:w-1/2">
             <h1 className="text-[1.5rem] text-red-600 font-[700]">
@@ -130,7 +131,7 @@ const Main = ({ showSearchList, handleCloseSearchList }) => {
         </div>
       </section>
 
-      <section className="w-full px-4 bg-gradient-to-b from-[#020d18] to-[#111827] md:px-[50px] pt-[80px] pb-[120px] md:pb-[250px] relative overflow-x-hidden">
+      <section className="w-full px-4 bg-gradient-to-b from-[#020d18] to-[#111827] md:px-[50px] pt-[80px] pb-[120px] md:pb-[350px] relative overflow-x-hidden">
         <div className="w-full block md:flex justify-between">
           <div
             data-aos="fade-right"

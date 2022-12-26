@@ -20,15 +20,19 @@ function App() {
 
   function handleSearchSubmit(event) {
     event.preventDefault();
+    // setShowLoader(true);
     setShowSearchList(true);
+    // setTimeout(setShowLoader(false), 5000);
   }
   function handleCloseSearchList() {
     setShowSearchList(false);
+    // setShowLoader(false);
   }
 
   // const location = useLocation();
   // console.log(location.pathname);
 
+  const [showLoader, setShowLoader] = useState(false);
   return (
     <Router>
       <div className="app">
@@ -36,6 +40,8 @@ function App() {
           showSearchList={showSearchList}
           handleSearchSubmit={handleSearchSubmit}
           handleCloseSearchList={handleCloseSearchList}
+          showLoader={showLoader}
+          setShowLoader={setShowLoader}
         />
         <div className="content-per-page">
           <Switch>
@@ -43,6 +49,7 @@ function App() {
               <Main
                 showSearchList={showSearchList}
                 handleCloseSearchList={handleCloseSearchList}
+                showLoader={showLoader}
               />
             </Route>
             <Route path="/about">

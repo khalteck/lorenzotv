@@ -8,6 +8,7 @@ const Search = ({
   handleSearchSubmit,
   showSearchList,
   handleCloseSearchList,
+  setShowLoader,
 }) => {
   let searchData = [...animationdata, ...moviedata];
   //   console.log(searchData);
@@ -62,6 +63,7 @@ const Search = ({
           filteredItems={filteredItems}
           handleCloseSearchList={handleCloseSearchList}
           searchField={searchField}
+          setShowLoader={setShowLoader}
         />
       )}
     </div>

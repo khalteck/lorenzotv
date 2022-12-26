@@ -14,6 +14,8 @@ const Header = ({
   handleSearchSubmit,
   showSearchList,
   handleCloseSearchList,
+  showLoader,
+  setShowLoader,
 }) => {
   const [openMenu, setOpenMenu] = useState(false);
   function handleClick() {
@@ -56,53 +58,55 @@ const Header = ({
   // })
 
   //to save currentPage to local storage
-  const [currentPage, setCurrentPage] = useState(JSON.parse(localStorage.getItem("page")) || {
-    home: false,
-    about: false,
-    movie: false,
-  })
+  const [currentPage, setCurrentPage] = useState(
+    JSON.parse(localStorage.getItem("page")) || {
+      home: false,
+      about: false,
+      movie: false,
+    }
+  );
   useEffect(() => {
-      localStorage.setItem("page", JSON.stringify(currentPage))
-  } , [currentPage])
+    localStorage.setItem("page", JSON.stringify(currentPage));
+  }, [currentPage]);
 
   function homeTag() {
-    setCurrentPage(prev => {
+    setCurrentPage((prev) => {
       return {
         home: true,
         about: false,
-        movie: false
-      }
-    })
+        movie: false,
+      };
+    });
   }
 
   function aboutTag() {
-    setCurrentPage(prev => {
+    setCurrentPage((prev) => {
       return {
         home: false,
         about: true,
-        movie: false
-      }
-    })
+        movie: false,
+      };
+    });
   }
 
   function movieTag() {
-    setCurrentPage(prev => {
+    setCurrentPage((prev) => {
       return {
         home: false,
         about: false,
-        movie: true
-      }
-    })
+        movie: true,
+      };
+    });
   }
 
   function resetCurrentPage() {
-    setCurrentPage(prev => {
+    setCurrentPage((prev) => {
       return {
         home: false,
         about: false,
-        movie: false
-      }
-    })
+        movie: false,
+      };
+    });
   }
 
   return (
@@ -124,7 +128,9 @@ const Header = ({
             to="/"
             onMouseOver={handleMouseOut}
             onClick={homeTag}
-            className={`px-[10px] py-[5px] rounded-md ${currentPage?.home ? "bg-[#b91c1c]" : "bg-[inherit]"} hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
+            className={`px-[10px] py-[5px] rounded-md ${
+              currentPage?.home ? "bg-[#b91c1c]" : "bg-[inherit]"
+            } hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
           >
             Home
           </Link>
@@ -132,7 +138,12 @@ const Header = ({
             onMouseOver={handleMovieHover}
             className={`relative text-[0.85rem]`}
           >
-            <div onClick={movieTag} className={`px-[10px] py-[5px] flex gap-3 items-center ${currentPage?.movie ? "bg-[#b91c1c]" : "bg-[inherit]"} rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 cursor-pointer relative`}>
+            <div
+              onClick={movieTag}
+              className={`px-[10px] py-[5px] flex gap-3 items-center ${
+                currentPage?.movie ? "bg-[#b91c1c]" : "bg-[inherit]"
+              } rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 cursor-pointer relative`}
+            >
               Movies
               <img alt="" src={movieHover ? up : down} className="h-3 w-3" />
             </div>
@@ -143,9 +154,9 @@ const Header = ({
               >
                 <Link to="/movies">
                   <div
-                    onClick={ () => {
-                      handleMouseOut()
-                      movieTag()
+                    onClick={() => {
+                      handleMouseOut();
+                      movieTag();
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
@@ -154,9 +165,9 @@ const Header = ({
                 </Link>
                 <Link to="/animation">
                   <div
-                    onClick={ () => {
-                      handleMouseOut()
-                      movieTag()
+                    onClick={() => {
+                      handleMouseOut();
+                      movieTag();
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
@@ -165,9 +176,9 @@ const Header = ({
                 </Link>
                 <Link to="/series">
                   <div
-                    onClick={ () => {
-                      handleMouseOut()
-                      movieTag()
+                    onClick={() => {
+                      handleMouseOut();
+                      movieTag();
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
@@ -176,9 +187,9 @@ const Header = ({
                 </Link>
                 <Link to="/anime">
                   <div
-                    onClick={ () => {
-                      handleMouseOut()
-                      movieTag()
+                    onClick={() => {
+                      handleMouseOut();
+                      movieTag();
                     }}
                     className="py-2 hover:bg-red-700"
                   >
@@ -192,7 +203,9 @@ const Header = ({
             to="/about"
             onMouseOver={handleMouseOut}
             onClick={aboutTag}
-            className={`px-[10px] py-[5px] rounded-md ${currentPage?.about ? "bg-[#b91c1c]" : "bg-[inherit]"} hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
+            className={`px-[10px] py-[5px] rounded-md ${
+              currentPage?.about ? "bg-[#b91c1c]" : "bg-[inherit]"
+            } hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
           >
             About Us
           </Link>
@@ -221,6 +234,8 @@ const Header = ({
             showSearchList={showSearchList}
             handleSearchSubmit={handleSearchSubmit}
             handleCloseSearchList={handleCloseSearchList}
+            // showLoader={showLoader}
+            setShowLoader={setShowLoader}
           />
           {/* {showSearchList && (
             <div className="w-full h-full bg-[#020d18]/90 absolute top-0 left-0"></div>
