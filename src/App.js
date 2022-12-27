@@ -12,7 +12,6 @@ import { useState } from "react";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Ad from "./pages/Ad";
-import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
