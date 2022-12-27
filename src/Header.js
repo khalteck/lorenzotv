@@ -2,7 +2,7 @@ import logo from "./images/logo-lorenzo.jpg";
 import search from "./images/icons8-search-50.png";
 import menu from "./images/icons8-menu-squared-50.png";
 import close from "./images/icons8-close-window-50.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import up from "./images/icons8-up-24.png";
 import down from "./images/icons8-chevron-24.png";
@@ -16,6 +16,7 @@ const Header = ({
   handleCloseSearchList,
   showLoader,
   setShowLoader,
+  currentPage,
 }) => {
   const [openMenu, setOpenMenu] = useState(false);
   function handleClick() {
@@ -57,57 +58,57 @@ const Header = ({
   //   movie: false,
   // })
 
-  //to save currentPage to local storage
-  const [currentPage, setCurrentPage] = useState(
-    JSON.parse(localStorage.getItem("page")) || {
-      home: false,
-      about: false,
-      movie: false,
-    }
-  );
-  useEffect(() => {
-    localStorage.setItem("page", JSON.stringify(currentPage));
-  }, [currentPage]);
+  // //to save currentPage to local storage
+  // const [currentPage, setCurrentPage] = useState(
+  //   JSON.parse(localStorage.getItem("page")) || {
+  //     home: false,
+  //     about: false,
+  //     movie: false,
+  //   }
+  // );
+  // useEffect(() => {
+  //   localStorage.setItem("page", JSON.stringify(currentPage));
+  // }, [currentPage]);
 
-  function homeTag() {
-    setCurrentPage((prev) => {
-      return {
-        home: true,
-        about: false,
-        movie: false,
-      };
-    });
-  }
+  // function homeTag() {
+  //   setCurrentPage((prev) => {
+  //     return {
+  //       home: true,
+  //       about: false,
+  //       movie: false,
+  //     };
+  //   });
+  // }
 
-  function aboutTag() {
-    setCurrentPage((prev) => {
-      return {
-        home: false,
-        about: true,
-        movie: false,
-      };
-    });
-  }
+  // function aboutTag() {
+  //   setCurrentPage((prev) => {
+  //     return {
+  //       home: false,
+  //       about: true,
+  //       movie: false,
+  //     };
+  //   });
+  // }
 
-  function movieTag() {
-    setCurrentPage((prev) => {
-      return {
-        home: false,
-        about: false,
-        movie: true,
-      };
-    });
-  }
+  // function movieTag() {
+  //   setCurrentPage((prev) => {
+  //     return {
+  //       home: false,
+  //       about: false,
+  //       movie: true,
+  //     };
+  //   });
+  // }
 
-  function resetCurrentPage() {
-    setCurrentPage((prev) => {
-      return {
-        home: false,
-        about: false,
-        movie: false,
-      };
-    });
-  }
+  // function resetCurrentPage() {
+  //   setCurrentPage((prev) => {
+  //     return {
+  //       home: false,
+  //       about: false,
+  //       movie: false,
+  //     };
+  //   });
+  // }
 
   return (
     <header>
@@ -127,9 +128,8 @@ const Header = ({
           <Link
             to="/"
             onMouseOver={handleMouseOut}
-            onClick={homeTag}
             className={`px-[10px] py-[5px] rounded-md ${
-              currentPage?.home ? "bg-[#b91c1c]" : "bg-[inherit]"
+              currentPage === "/" ? "bg-[#b91c1c]" : "bg-[inherit]"
             } hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
           >
             Home
@@ -139,9 +139,10 @@ const Header = ({
             className={`relative text-[0.85rem]`}
           >
             <div
-              onClick={movieTag}
               className={`px-[10px] py-[5px] flex gap-3 items-center ${
-                currentPage?.movie ? "bg-[#b91c1c]" : "bg-[inherit]"
+                currentPage === "/movies" || currentPage === "/animation"
+                  ? "bg-[#b91c1c]"
+                  : "bg-[inherit]"
               } rounded-md hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300 cursor-pointer relative`}
             >
               Movies
@@ -156,7 +157,6 @@ const Header = ({
                   <div
                     onClick={() => {
                       handleMouseOut();
-                      movieTag();
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
@@ -167,7 +167,6 @@ const Header = ({
                   <div
                     onClick={() => {
                       handleMouseOut();
-                      movieTag();
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
@@ -178,7 +177,6 @@ const Header = ({
                   <div
                     onClick={() => {
                       handleMouseOut();
-                      movieTag();
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
@@ -189,7 +187,6 @@ const Header = ({
                   <div
                     onClick={() => {
                       handleMouseOut();
-                      movieTag();
                     }}
                     className="py-2 hover:bg-red-700"
                   >
@@ -202,9 +199,8 @@ const Header = ({
           <Link
             to="/about"
             onMouseOver={handleMouseOut}
-            onClick={aboutTag}
             className={`px-[10px] py-[5px] rounded-md ${
-              currentPage?.about ? "bg-[#b91c1c]" : "bg-[inherit]"
+              currentPage === "/about" ? "bg-[#b91c1c]" : "bg-[inherit]"
             } hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
           >
             About Us
@@ -221,7 +217,7 @@ const Header = ({
         </nav>
         {/**nav bar */}
 
-        <Link to="/advertisement" onClick={resetCurrentPage}>
+        <Link to="/advertisement">
           <div className="w-[fit-content] mr-4 p-2 sm:p-3 bg-red-700 rounded-lg text-[0.8rem] font-bold cursor-pointer hover:translate-y-[6px] transition-all duration-300">
             Advertise
           </div>
