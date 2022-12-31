@@ -53,6 +53,7 @@ const Details = () => {
                   <img alt="" src={file} className="w-5 h-5" />
                 </button>
               </a>
+              <iframe width="864" height="486" src="https://www.youtube.com/embed/wafyhTpWpUs" title="Emancipation — Official Trailer | Apple TV+" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
         </div>
