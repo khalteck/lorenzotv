@@ -128,6 +128,7 @@ const Header = ({
           <Link
             to="/"
             onMouseOver={handleMouseOut}
+            onClick={() => setShowLoader(true)}
             className={`px-[10px] py-[5px] rounded-md ${
               currentPage === "/" ? "bg-[#b91c1c]" : "bg-[inherit]"
             } hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
@@ -157,6 +158,7 @@ const Header = ({
                   <div
                     onClick={() => {
                       handleMouseOut();
+                      setShowLoader(true);
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
@@ -167,6 +169,7 @@ const Header = ({
                   <div
                     onClick={() => {
                       handleMouseOut();
+                      setShowLoader(true);
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >

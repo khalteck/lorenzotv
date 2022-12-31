@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import search from "../images/icons8-search-50.png";
 import SearchList from "./SearchList";
 
-const AnimationSearch = ({ animationdata }) => {
+const AnimationSearch = ({ animationsFromJson }) => {
   const [showSearchList, setShowSearchList] = useState(false);
 
   function handleSearchSubmit(event) {
@@ -14,7 +14,7 @@ const AnimationSearch = ({ animationdata }) => {
     setSearchField("");
   }
 
-  let searchData = [...animationdata];
+  let searchData = [...animationsFromJson];
   //   console.log(searchData);
   const [searchField, setSearchField] = useState("");
 
