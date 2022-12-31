@@ -54,8 +54,8 @@ const Details = () => {
                 </button>
               </a>
             </div>
-            <iframe width="864" height="486" src="{`${movie?.subtitleLink}`}" title="{movie?.title}— Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <iframe width="864" height="486" src={`${movie?.trailer}`} title="Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <ScrollToTop />
       </div>
