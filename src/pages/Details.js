@@ -54,7 +54,7 @@ const Details = () => {
                 </button>
               </a>
             </div>
-            <iframe width="864" height="486" src="https://www.youtube.com/embed/wafyhTpWpUs" title="Emancipation — Official Trailer | Apple TV+" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="864" height="486" src="{`${movie?.subtitleLink}`}" title="{movie?.title}— Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
         <ScrollToTop />
