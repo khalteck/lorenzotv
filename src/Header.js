@@ -6,8 +6,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import up from "./images/icons8-up-24.png";
 import down from "./images/icons8-chevron-24.png";
-import moviedata from "./data/movieData.json";
-import animationdata from "./data/animationData.json";
 import Search from "./components/Search";
 
 const Header = ({
@@ -17,6 +15,8 @@ const Header = ({
   showLoader,
   setShowLoader,
   currentPage,
+  moviesFromJson,
+  animationsFromJson,
 }) => {
   const [openMenu, setOpenMenu] = useState(false);
   function handleClick() {
@@ -228,8 +228,8 @@ const Header = ({
 
         <div className="w-[250px]">
           <Search
-            animationdata={animationdata}
-            moviedata={moviedata}
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
             showSearchList={showSearchList}
             handleSearchSubmit={handleSearchSubmit}
             handleCloseSearchList={handleCloseSearchList}
@@ -280,8 +280,8 @@ const Header = ({
           >
             <div className="w-full">
               <Search
-                animationdata={animationdata}
-                moviedata={moviedata}
+                moviesFromJson={moviesFromJson}
+                animationsFromJson={animationsFromJson}
                 showSearchList={showSearchList}
                 handleSearchSubmit={handleSearchSubmit}
                 handleCloseSearchList={handleCloseSearchList}

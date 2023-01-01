@@ -12,6 +12,7 @@ const Animation = ({
   handleSearchSubmit,
   setShowLoader,
   animationsFromJson,
+  moviesFromJson,
   firstTwentyA,
   nextThirtyA,
   nextFortyA,
@@ -36,6 +37,8 @@ const Animation = ({
         handleCloseSearchList={handleCloseSearchList}
         showLoader={showLoader}
         setShowLoader={setShowLoader}
+        moviesFromJson={moviesFromJson}
+        animationsFromJson={animationsFromJson}
       />
       <div className="bg-[#020d18] text-slate-100 pt-8 px-4 md:px-[50px]">
         {showLoader && <Loader />}

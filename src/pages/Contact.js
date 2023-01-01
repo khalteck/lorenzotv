@@ -5,10 +5,13 @@ import three from "../images/jelly-three-red-lines-2.png";
 import contact from "../images/matey-man-and-woman-work-in-support-service.png";
 import ScrollToTop from "../ScrollToTop";
 
-const Contact = () => {
+const Contact = ({ animationsFromJson, moviesFromJson }) => {
   return (
     <>
-      <Header />
+      <Header
+        moviesFromJson={moviesFromJson}
+        animationsFromJson={animationsFromJson}
+      />
       <div className="w-full text-slate-100 bg-[#020d18] bg-home text-[2rem]">
         <div className="overlay w-full h-full bg-[#020d18]/70 px-4 md:px-[50px] py-[80px] block md:flex justify-between text-[1rem]">
           <div className="w-full md:w-[40%] text-center">

@@ -24,6 +24,8 @@ const Main = ({
   currentPage,
   homeAnimations,
   homeMovies,
+  moviesFromJson,
+  animationsFromJson,
 }) => {
   useEffect(() => {
     AOS.init();
@@ -90,6 +92,8 @@ const Main = ({
         showLoader={showLoader}
         setShowLoader={setShowLoader}
         currentPage={currentPage}
+        moviesFromJson={moviesFromJson}
+        animationsFromJson={animationsFromJson}
       />
       <main className="text-slate-100">
         {showLoader && <Loader />}

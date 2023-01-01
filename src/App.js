@@ -185,7 +185,16 @@ function App() {
           />
         }
       />
-      <Route path="/about" element={<About currentPage={currentPage} />} />
+      <Route
+        path="/about"
+        element={
+          <About
+            currentPage={currentPage}
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
+          />
+        }
+      />
       <Route
         path="/movies"
         element={
@@ -197,6 +206,7 @@ function App() {
             setShowLoader={setShowLoader}
             currentPage={currentPage}
             moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
             firstTwenty={firstTwenty}
             nextThirty={nextThirty}
             nextForty={nextForty}
@@ -213,8 +223,24 @@ function App() {
           />
         }
       />
-      <Route path="/series" element={<Series />} />
-      <Route path="/anime" element={<Anime />} />
+      <Route
+        path="/series"
+        element={
+          <Series
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
+          />
+        }
+      />
+      <Route
+        path="/anime"
+        element={
+          <Anime
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
+          />
+        }
+      />
       <Route
         path="/animation"
         element={
@@ -225,6 +251,7 @@ function App() {
             showLoader={showLoader}
             setShowLoader={setShowLoader}
             animationsFromJson={animationsFromJson}
+            moviesFromJson={moviesFromJson}
             firstTwentyA={firstTwentyA}
             nextThirtyA={nextThirtyA}
             nextFortyA={nextFortyA}
@@ -241,11 +268,51 @@ function App() {
           />
         }
       />
-      <Route path="/movie/:title" element={<Details />} />
-      <Route path="/animations/:title" element={<AnimationDetails />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/privacy-policy" element={<Privacy />} />
-      <Route path="/advertisement" element={<Ad />} />
+      <Route
+        path="/movie/:title"
+        element={
+          <Details
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
+          />
+        }
+      />
+      <Route
+        path="/animations/:title"
+        element={
+          <AnimationDetails
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
+          />
+        }
+      />
+      <Route
+        path="/contact"
+        element={
+          <Contact
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
+          />
+        }
+      />
+      <Route
+        path="/privacy-policy"
+        element={
+          <Privacy
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
+          />
+        }
+      />
+      <Route
+        path="/advertisement"
+        element={
+          <Ad
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
+          />
+        }
+      />
     </Routes>
   );
 }
