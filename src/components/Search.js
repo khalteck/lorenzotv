@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import SearchList from "./SearchList";
 
 const Search = ({
-  animationdata,
-  moviedata,
+  animationsFromJson,
+  moviesFromJson,
   handleSearchSubmit,
   showSearchList,
   handleCloseSearchList,
   setShowLoader,
 }) => {
-  let searchData = [...animationdata, ...moviedata];
+  let searchData = [...animationsFromJson, ...moviesFromJson];
   //   console.log(searchData);
   const [searchField, setSearchField] = useState("");
 

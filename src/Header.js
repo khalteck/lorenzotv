@@ -6,8 +6,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import up from "./images/icons8-up-24.png";
 import down from "./images/icons8-chevron-24.png";
-import moviedata from "./data/movieData.json";
-import animationdata from "./data/animationData.json";
 import Search from "./components/Search";
 
 const Header = ({
@@ -17,6 +15,8 @@ const Header = ({
   showLoader,
   setShowLoader,
   currentPage,
+  moviesFromJson,
+  animationsFromJson,
 }) => {
   const [openMenu, setOpenMenu] = useState(false);
   function handleClick() {
@@ -128,6 +128,7 @@ const Header = ({
           <Link
             to="/"
             onMouseOver={handleMouseOut}
+            onClick={() => setShowLoader(true)}
             className={`px-[10px] py-[5px] rounded-md ${
               currentPage === "/" ? "bg-[#b91c1c]" : "bg-[inherit]"
             } hover:bg-[#b91c1c] hover:translate-y-[6px] transition-all duration-300`}
@@ -157,6 +158,7 @@ const Header = ({
                   <div
                     onClick={() => {
                       handleMouseOut();
+                      setShowLoader(true);
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
@@ -167,6 +169,7 @@ const Header = ({
                   <div
                     onClick={() => {
                       handleMouseOut();
+                      setShowLoader(true);
                     }}
                     className="py-2 hover:bg-red-700 border-b border-b-slate-600"
                   >
@@ -225,8 +228,8 @@ const Header = ({
 
         <div className="w-[250px]">
           <Search
-            animationdata={animationdata}
-            moviedata={moviedata}
+            moviesFromJson={moviesFromJson}
+            animationsFromJson={animationsFromJson}
             showSearchList={showSearchList}
             handleSearchSubmit={handleSearchSubmit}
             handleCloseSearchList={handleCloseSearchList}
@@ -277,8 +280,8 @@ const Header = ({
           >
             <div className="w-full">
               <Search
-                animationdata={animationdata}
-                moviedata={moviedata}
+                moviesFromJson={moviesFromJson}
+                animationsFromJson={animationsFromJson}
                 showSearchList={showSearchList}
                 handleSearchSubmit={handleSearchSubmit}
                 handleCloseSearchList={handleCloseSearchList}

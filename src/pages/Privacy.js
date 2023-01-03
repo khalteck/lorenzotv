@@ -2,10 +2,13 @@ import Footer from "../Footer";
 import Header from "../Header";
 import ScrollToTop from "../ScrollToTop";
 
-const Privacy = () => {
+const Privacy = ({ animationsFromJson, moviesFromJson }) => {
   return (
     <>
-      <Header />
+      <Header
+        moviesFromJson={moviesFromJson}
+        animationsFromJson={animationsFromJson}
+      />
       <div className="bg-[#020d18] text-slate-100 pt-8 pb-12 px-4 md:px-[50px]">
         <h1 className="w-[fit-content] mb-4 sm:w-full text-[1.75rem] md:text-[2.2rem] font-[700] mx-auto">
           Privacy Policy

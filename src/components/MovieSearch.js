@@ -1,25 +1,33 @@
 import React, { useState } from "react";
+import Loader from "./Loader";
 //import search from "../images/icons8-search-50.png";
 import SearchList from "./SearchList";
 
-const MovieSearch = ({ moviedata }) => {
+const MovieSearch = ({ moviesFromJson, setShowLoader, showLoader }) => {
   const [showSearchList, setShowSearchList] = useState(false);
   const [searchField, setSearchField] = useState("");
+  const [filteredItems, setFilteredItems] = useState([]);
 
-  function handleSearchSubmit(event) {
+  async function handleSearchSubmit(event) {
     event.preventDefault();
-    setShowSearchList(true);
+    setShowLoader(true);
+    try {
+      let searchData = [...moviesFromJson];
+      const filt = searchData.filter((item) => {
+        return item.title.toLowerCase().includes(searchField.toLowerCase());
+      });
+      setFilteredItems(filt);
+      setShowSearchList(true);
+      setShowLoader(false);
+    } catch (err) {
+      console.log(err.message);
+      setShowLoader(false);
+    }
   }
   function handleCloseSearchList() {
     setShowSearchList(false);
     setSearchField("");
   }
-
-  let searchData = [...moviedata];
-
-  const filteredItems = searchData.filter((item) => {
-    return item.title.toLowerCase().includes(searchField.toLowerCase());
-  });
 
   const handleChange = (event) => {
     setSearchField(event.target.value);
@@ -31,6 +39,8 @@ const MovieSearch = ({ moviedata }) => {
 
   return (
     <div>
+      {showLoader && <Loader />}
+
       <div
         className={`w-full bg-black/50 px-[15px] py-[10px] ${
           showSearchList ? "border-red-700/40" : "border-red-700"

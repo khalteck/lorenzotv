@@ -4,10 +4,13 @@ import logo from "../images/logo-lorenzo.jpg";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const Ad = () => {
+const Ad = ({ currentPage, animationsFromJson, moviesFromJson }) => {
   return (
     <>
-      <Header />
+      <Header
+        moviesFromJson={moviesFromJson}
+        animationsFromJson={animationsFromJson}
+      />
       <div className="w-full lg:w-[80%] bg-[#020d18] text-slate-100 pt-8 pb-12 px-4 md:px-[50px]">
         <h1 className="w-[fit-content] mb-4 sm:w-full text-[1.75rem] md:text-[2.2rem] font-[700] mx-auto">
           ADVERTISE WITH US

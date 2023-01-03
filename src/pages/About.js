@@ -12,10 +12,14 @@ import { Link } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const About = ({ currentPage }) => {
+const About = ({ currentPage, animationsFromJson, moviesFromJson }) => {
   return (
     <>
-      <Header currentPage={currentPage} />
+      <Header
+        currentPage={currentPage}
+        moviesFromJson={moviesFromJson}
+        animationsFromJson={animationsFromJson}
+      />
       <div className="bg-[#020d18] text-slate-100 py-8 px-4 md:px-[50px]">
         <h1 className="w-[fit-content] mb-4 sm:w-full text-[1.75rem] md:text-[2.2rem] font-[700] mx-auto">
           About Us

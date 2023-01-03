@@ -1,8 +1,6 @@
 import hero from "./images/lorenzo apple touch.jpeg";
 import arcs from "./images/jelly-two-red-lines-1.png";
 import three from "./images/jelly-three-red-lines-2.png";
-import moviedata from "./data/movieData.json";
-import animationdata from "./data/animationData.json";
 import { useState, useEffect } from "react";
 import Moviecard from "./components/Moviecard";
 import Form from "./components/Form";
@@ -13,7 +11,7 @@ import ScrollToTop from "./ScrollToTop";
 import Animationcard from "./components/Animationcard";
 import AOS from "aos";
 import "aos/dist/aos.css";
-// import Loader from "./components/Loader";
+import Loader from "./components/Loader";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -24,32 +22,14 @@ const Main = ({
   handleSearchSubmit,
   setShowLoader,
   currentPage,
-  handleHomeNav,
+  homeAnimations,
+  homeMovies,
+  moviesFromJson,
+  animationsFromJson,
 }) => {
   useEffect(() => {
     AOS.init();
   });
-
-  //to display twenty random movies
-  const [movies] = useState(moviedata);
-  const [homeMovies, setHomeMovies] = useState([]);
-  //to shuffle the movie array
-  useEffect(() => {
-    let moviesCopy = [...movies];
-    const randomMovies = moviesCopy.sort(() => 0.5 - Math.random());
-    let firstTwentyMovies = randomMovies.slice(0, 20);
-    setHomeMovies(firstTwentyMovies);
-  }, [movies]);
-
-  const [animations] = useState(animationdata);
-  const [homeAnimations, setHomeAnimations] = useState([]);
-
-  useEffect(() => {
-    let animationCopy = [...animations];
-    const randomAnimations = animationCopy.sort(() => 0.5 - Math.random());
-    let firstTwentyAnimations = randomAnimations.slice(0, 20);
-    setHomeAnimations(firstTwentyAnimations);
-  }, [animations]);
 
   //random display state
   const [randomDisplay, setRandomDisplay] = useState({
@@ -66,6 +46,17 @@ const Main = ({
         seriesDisplay: false,
         animeDisplay: false,
         animationDisplay: false,
+      };
+    });
+  }
+
+  function handleDisplayAnimation() {
+    setRandomDisplay((prevState) => {
+      return {
+        movieDisplay: false,
+        seriesDisplay: false,
+        animeDisplay: false,
+        animationDisplay: true,
       };
     });
   }
@@ -92,17 +83,6 @@ const Main = ({
     });
   }*/
 
-  function handleDisplayAnimation() {
-    setRandomDisplay((prevState) => {
-      return {
-        movieDisplay: false,
-        seriesDisplay: false,
-        animeDisplay: false,
-        animationDisplay: true,
-      };
-    });
-  }
-
   return (
     <>
       <Header
@@ -112,9 +92,11 @@ const Main = ({
         showLoader={showLoader}
         setShowLoader={setShowLoader}
         currentPage={currentPage}
+        moviesFromJson={moviesFromJson}
+        animationsFromJson={animationsFromJson}
       />
       <main className="text-slate-100">
-        {/* {showLoader && <Loader />} */}
+        {showLoader && <Loader />}
         {/* <Link to="/advertisement">
      <div className="w-[fit-content] p-2 sm:p-3 bg-red-700 rounded-md text-[1rem] font-bold fixed bottom-5 left-5 sm:bottom-10 sm:left-0 z-50 cursor-pointer">
        AD
