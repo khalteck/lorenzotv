@@ -3,10 +3,19 @@ import coming from "../images/coming-soon.png";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const Series = ({ animationsFromJson, moviesFromJson }) => {
+const Series = ({
+  animationsFromJson,
+  moviesFromJson,
+  showSearchList,
+  handleCloseSearchList,
+  handleSearchSubmit,
+}) => {
   return (
     <>
       <Header
+        showSearchList={showSearchList}
+        handleSearchSubmit={handleSearchSubmit}
+        handleCloseSearchList={handleCloseSearchList}
         moviesFromJson={moviesFromJson}
         animationsFromJson={animationsFromJson}
       />

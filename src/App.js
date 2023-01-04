@@ -189,6 +189,9 @@ function App() {
         path="/about"
         element={
           <About
+            showSearchList={showSearchList}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCloseSearchList={handleCloseSearchList}
             currentPage={currentPage}
             moviesFromJson={moviesFromJson}
             animationsFromJson={animationsFromJson}
@@ -227,6 +230,9 @@ function App() {
         path="/series"
         element={
           <Series
+            showSearchList={showSearchList}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCloseSearchList={handleCloseSearchList}
             moviesFromJson={moviesFromJson}
             animationsFromJson={animationsFromJson}
           />
@@ -236,6 +242,9 @@ function App() {
         path="/anime"
         element={
           <Anime
+            showSearchList={showSearchList}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCloseSearchList={handleCloseSearchList}
             moviesFromJson={moviesFromJson}
             animationsFromJson={animationsFromJson}
           />
@@ -272,6 +281,9 @@ function App() {
         path="/movie/:title"
         element={
           <Details
+            showSearchList={showSearchList}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCloseSearchList={handleCloseSearchList}
             moviesFromJson={moviesFromJson}
             animationsFromJson={animationsFromJson}
           />
@@ -281,6 +293,9 @@ function App() {
         path="/animations/:title"
         element={
           <AnimationDetails
+            showSearchList={showSearchList}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCloseSearchList={handleCloseSearchList}
             moviesFromJson={moviesFromJson}
             animationsFromJson={animationsFromJson}
           />
@@ -290,6 +305,9 @@ function App() {
         path="/contact"
         element={
           <Contact
+            showSearchList={showSearchList}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCloseSearchList={handleCloseSearchList}
             moviesFromJson={moviesFromJson}
             animationsFromJson={animationsFromJson}
           />
@@ -299,6 +317,9 @@ function App() {
         path="/privacy-policy"
         element={
           <Privacy
+            showSearchList={showSearchList}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCloseSearchList={handleCloseSearchList}
             moviesFromJson={moviesFromJson}
             animationsFromJson={animationsFromJson}
           />
@@ -308,6 +329,9 @@ function App() {
         path="/advertisement"
         element={
           <Ad
+            showSearchList={showSearchList}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCloseSearchList={handleCloseSearchList}
             moviesFromJson={moviesFromJson}
             animationsFromJson={animationsFromJson}
           />

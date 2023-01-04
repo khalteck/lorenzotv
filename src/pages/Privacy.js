@@ -2,10 +2,19 @@ import Footer from "../Footer";
 import Header from "../Header";
 import ScrollToTop from "../ScrollToTop";
 
-const Privacy = ({ animationsFromJson, moviesFromJson }) => {
+const Privacy = ({
+  animationsFromJson,
+  moviesFromJson,
+  showSearchList,
+  handleCloseSearchList,
+  handleSearchSubmit,
+}) => {
   return (
     <>
       <Header
+        showSearchList={showSearchList}
+        handleSearchSubmit={handleSearchSubmit}
+        handleCloseSearchList={handleCloseSearchList}
         moviesFromJson={moviesFromJson}
         animationsFromJson={animationsFromJson}
       />

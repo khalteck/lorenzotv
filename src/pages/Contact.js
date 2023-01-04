@@ -5,10 +5,19 @@ import three from "../images/jelly-three-red-lines-2.png";
 import contact from "../images/matey-man-and-woman-work-in-support-service.png";
 import ScrollToTop from "../ScrollToTop";
 
-const Contact = ({ animationsFromJson, moviesFromJson }) => {
+const Contact = ({
+  animationsFromJson,
+  moviesFromJson,
+  showSearchList,
+  handleCloseSearchList,
+  handleSearchSubmit,
+}) => {
   return (
     <>
       <Header
+        showSearchList={showSearchList}
+        handleSearchSubmit={handleSearchSubmit}
+        handleCloseSearchList={handleCloseSearchList}
         moviesFromJson={moviesFromJson}
         animationsFromJson={animationsFromJson}
       />

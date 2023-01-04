@@ -6,13 +6,22 @@ import file from "../images/icons8-file-64.png";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const AnimationDetails = ({ animationsFromJson, moviesFromJson }) => {
+const AnimationDetails = ({
+  animationsFromJson,
+  moviesFromJson,
+  showSearchList,
+  handleCloseSearchList,
+  handleSearchSubmit,
+}) => {
   const { title } = useParams();
   const movie = animationsFromJson?.filter((movie) => movie.title === title)[0];
 
   return (
     <>
       <Header
+        showSearchList={showSearchList}
+        handleSearchSubmit={handleSearchSubmit}
+        handleCloseSearchList={handleCloseSearchList}
         moviesFromJson={moviesFromJson}
         animationsFromJson={animationsFromJson}
       />
@@ -58,6 +67,27 @@ const AnimationDetails = ({ animationsFromJson, moviesFromJson }) => {
               </a>
             </div>
           </div>
+        </div>
+        <div className="w-full bg-gradient-to-b from-[#020d18] to-[#111827] p-4">
+          <h2 className="text-[1.75rem] font-bold mb-4">Movie Trailer</h2>
+          {movie?.trailer && (
+            <div className="min-w-[280px] max-w-[400px] h-[220px] sm:min-w-[350px] sm:max-w-[400px] sm:h-[240px] lg:min-w-[460px] lg:max-w-[480px] lg:h-[300px] bg-slate-300 rounded-xl mb-5 sm:mb-[50px]">
+              <iframe
+                width="100%"
+                height="100%"
+                className="rounded-xl"
+                src={movie?.trailer}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
+          {!movie?.trailer && (
+            <div className="min-w-[280px] max-w-[400px] h-[220px] sm:min-w-[350px] sm:max-w-[400px] sm:h-[240px] lg:min-w-[460px] lg:max-w-[480px] lg:h-[300px] bg-slate-600 rounded-xl mb-5 sm:mb-[50px] flex justify-center items-center text-slate-800 font-bold text-[1.3rem]">
+              <p>Not available</p>
+            </div>
+          )}
         </div>
         <ScrollToTop />
       </div>

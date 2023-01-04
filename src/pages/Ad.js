@@ -4,10 +4,20 @@ import logo from "../images/logo-lorenzo.jpg";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const Ad = ({ currentPage, animationsFromJson, moviesFromJson }) => {
+const Ad = ({
+  currentPage,
+  animationsFromJson,
+  moviesFromJson,
+  showSearchList,
+  handleCloseSearchList,
+  handleSearchSubmit,
+}) => {
   return (
     <>
       <Header
+        showSearchList={showSearchList}
+        handleSearchSubmit={handleSearchSubmit}
+        handleCloseSearchList={handleCloseSearchList}
         moviesFromJson={moviesFromJson}
         animationsFromJson={animationsFromJson}
       />
@@ -20,7 +30,7 @@ const Ad = ({ currentPage, animationsFromJson, moviesFromJson }) => {
           src={logo}
           className="w-[250px] h-auto my-8 rounded-3xl mx-auto sm:mx-0"
         />
-        <p>
+        <div>
           LorenzoTv.com generates over 1million page views daily from over
           500,000 unique visitors from all around the world. LorenzoTV is
           targeted at entertainment, mainly BLOCKBUSTER MOVIES, ANIMATION,
@@ -131,7 +141,7 @@ const Ad = ({ currentPage, animationsFromJson, moviesFromJson }) => {
           <strong>LorenzoTv your number 1 entertainment tv</strong>
           <br />
           <br />
-        </p>
+        </div>
         <ScrollToTop />
       </div>
       <Footer />

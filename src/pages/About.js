@@ -12,10 +12,20 @@ import { Link } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const About = ({ currentPage, animationsFromJson, moviesFromJson }) => {
+const About = ({
+  currentPage,
+  animationsFromJson,
+  moviesFromJson,
+  showSearchList,
+  handleCloseSearchList,
+  handleSearchSubmit,
+}) => {
   return (
     <>
       <Header
+        showSearchList={showSearchList}
+        handleSearchSubmit={handleSearchSubmit}
+        handleCloseSearchList={handleCloseSearchList}
         currentPage={currentPage}
         moviesFromJson={moviesFromJson}
         animationsFromJson={animationsFromJson}

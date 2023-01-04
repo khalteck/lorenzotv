@@ -884,6 +884,10 @@ video {
   height: 1.25rem;
 }
 
+.h-\[220px\] {
+  height: 220px;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1002,8 +1006,12 @@ video {
   width: 260px;
 }
 
-.w-2\/5 {
-  width: 40%;
+.min-w-\[280px\] {
+  min-width: 280px;
+}
+
+.max-w-\[400px\] {
+  max-width: 400px;
 }
 
 .translate-y-\[-1px\] {
@@ -1102,6 +1110,10 @@ video {
   gap: 1.5rem;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
 .gap-10 {
   gap: 2.5rem;
 }
@@ -1112,10 +1124,6 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
-}
-
-.gap-12 {
-  gap: 3rem;
 }
 
 .overflow-hidden {
@@ -1160,6 +1168,10 @@ video {
 
 .rounded-3xl {
   border-radius: 1.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .border-2 {
@@ -1278,6 +1290,16 @@ video {
 
 .bg-\[\#020d18\]\/70 {
   background-color: rgb(2 13 24 / 0.7);
+}
+
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
+.bg-slate-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'\.\/images\/lorenzo-bg-image\.png\'\)\] {
@@ -1581,6 +1603,10 @@ video {
   font-size: 1.1rem;
 }
 
+.text-\[1\.3rem\] {
+  font-size: 1.3rem;
+}
+
 .font-\[700\] {
   font-weight: 700;
 }
@@ -1625,6 +1651,11 @@ video {
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.text-slate-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 41 59 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -1806,8 +1837,16 @@ video {
     margin-bottom: 0px;
   }
 
+  .sm\:mb-\[50px\] {
+    margin-bottom: 50px;
+  }
+
   .sm\:flex {
     display: flex;
+  }
+
+  .sm\:h-\[240px\] {
+    height: 240px;
   }
 
   .sm\:w-\[300px\] {
@@ -1820,6 +1859,14 @@ video {
 
   .sm\:w-2\/5 {
     width: 40%;
+  }
+
+  .sm\:min-w-\[350px\] {
+    min-width: 350px;
+  }
+
+  .sm\:max-w-\[400px\] {
+    max-width: 400px;
   }
 
   .sm\:p-3 {
@@ -2019,6 +2066,10 @@ video {
     display: none;
   }
 
+  .lg\:h-\[300px\] {
+    height: 300px;
+  }
+
   .lg\:w-\[500px\] {
     width: 500px;
   }
@@ -2037,6 +2088,14 @@ video {
 
   .lg\:w-\[80\%\] {
     width: 80%;
+  }
+
+  .lg\:min-w-\[460px\] {
+    min-width: 460px;
+  }
+
+  .lg\:max-w-\[480px\] {
+    max-width: 480px;
   }
 
   .lg\:gap-8 {
